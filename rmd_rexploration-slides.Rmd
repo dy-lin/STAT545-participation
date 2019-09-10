@@ -1,0 +1,30 @@
+---
+title: "Tibble Exploration"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<!-- echo = FALSE hides the actual code -->
+<!-- load is the 'chunk label' -->
+```{r load, warning = FALSE, echo = FALSE}
+library(gapminder)
+library(tibble)
+library(DT)
+```
+
+## Print out gapminder data:
+
+```{r}
+x <- gapminder
+```
+
+<!-- this is a comment -->
+
+## Convert mtcars to a tibble (and wrap in datatable):
+
+```{r}
+datatable(as_tibble(mtcars))
+```
