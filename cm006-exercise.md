@@ -26,19 +26,12 @@ Load the `gapminder` and `tidyverse` packages. Hint: `suppressPackageStartupMess
 
 ```r
 # load your packages here:
-library(FILL_THIS_IN)
+library(gapminder)
+library(Ftidyverse)
 ```
 
 ```
-## Error in library(FILL_THIS_IN): there is no package called 'FILL_THIS_IN'
-```
-
-```r
-library(FILL_THIS_IN)
-```
-
-```
-## Error in library(FILL_THIS_IN): there is no package called 'FILL_THIS_IN'
+## Error in library(Ftidyverse): there is no package called 'Ftidyverse'
 ```
     
 
@@ -48,11 +41,11 @@ library(FILL_THIS_IN)
 
 
 ```r
-select(gapminder, FILL_THIS_IN)
+select(gapminder, year, lifeExp, country)
 ```
 
 ```
-## Error in select(gapminder, FILL_THIS_IN): could not find function "select"
+## Error in select(gapminder, year, lifeExp, country): could not find function "select"
 ```
 
 
@@ -70,11 +63,11 @@ select(gapminder, country, continent, year, lifeExp)
 
 ```r
 # Better way:
-select(gapminder, FILL_THIS_IN)
+select(gapminder, country:lifeExp)
 ```
 
 ```
-## Error in select(gapminder, FILL_THIS_IN): could not find function "select"
+## Error in select(gapminder, country:lifeExp): could not find function "select"
 ```
 
 
@@ -82,22 +75,22 @@ select(gapminder, FILL_THIS_IN)
 
 
 ```r
-select(gapminder, FILL_THIS_IN)
+select(gapminder, -lifeExp)
 ```
 
 ```
-## Error in select(gapminder, FILL_THIS_IN): could not find function "select"
+## Error in select(gapminder, -lifeExp): could not find function "select"
 ```
 
 4. Put `continent` first. Hint: use the `everything()` function.
 
 
 ```r
-select(gapminder, FILL_THIS_IN, FILL_THIS_IN)
+select(gapminder, continent, everything())
 ```
 
 ```
-## Error in select(gapminder, FILL_THIS_IN, FILL_THIS_IN): could not find function "select"
+## Error in select(gapminder, continent, everything()): could not find function "select"
 ```
 
 
@@ -106,19 +99,19 @@ select(gapminder, FILL_THIS_IN, FILL_THIS_IN)
 
 ```r
 # compare
-select(gapminder, FILL_THIS_IN)
+select(gapminder, cont = continent, everything())
 ```
 
 ```
-## Error in select(gapminder, FILL_THIS_IN): could not find function "select"
+## Error in select(gapminder, cont = continent, everything()): could not find function "select"
 ```
 
 ```r
-rename(gapminder, FILL_THIS_IN)
+rename(gapminder, cont = continent)
 ```
 
 ```
-## Error in rename(gapminder, FILL_THIS_IN): could not find function "rename"
+## Error in rename(gapminder, cont = continent): could not find function "rename"
 ```
 
 
@@ -128,33 +121,33 @@ rename(gapminder, FILL_THIS_IN)
 
 
 ```r
-arrange(gapminder, FILL_THIS_IN)
+arrange(gapminder, year)
 ```
 
 ```
-## Error in arrange(gapminder, FILL_THIS_IN): could not find function "arrange"
+## Error in arrange(gapminder, year): could not find function "arrange"
 ```
 
 2. Order by year, in descending order.
 
 
 ```r
-arrange(gapminder, FILL_THIS_IN)
+arrange(gapminder, desc(year))
 ```
 
 ```
-## Error in arrange(gapminder, FILL_THIS_IN): could not find function "arrange"
+## Error in arrange(gapminder, desc(year)): could not find function "arrange"
 ```
 
 3. Order by year, then by life expectancy.
 
 
 ```r
-arrange(gapminder, FILL_THIS_IN, FILL_THIS_IN)
+arrange(gapminder, year, lifeExp)
 ```
 
 ```
-## Error in arrange(gapminder, FILL_THIS_IN, FILL_THIS_IN): could not find function "arrange"
+## Error in arrange(gapminder, year, lifeExp): could not find function "arrange"
 ```
 
 ## Piping, `%>%` (8 min)
@@ -178,11 +171,17 @@ Now using with pipes:
 
 ```r
 # alter the below to include 2 "pipes"
-arrange(select(gapminder, year, lifeExp, country), year, lifeExp)
+gapminder %>%
+    select(year, lifeExp, country) %>%
+    arrange(year,lifeExp)
 ```
 
 ```
-## Error in arrange(select(gapminder, year, lifeExp, country), year, lifeExp): could not find function "arrange"
+## Error in gapminder %>% select(year, lifeExp, country) %>% arrange(year, : could not find function "%>%"
+```
+
+```r
+# shortcut for pipe: CMD + SHIFT + M
 ```
 
 # Resume lecture 
@@ -196,35 +195,56 @@ Return to guide at section 6.7.
 
 ```r
 gapminder %>%
-  filter(FILL_THIS_IN)
+  filter(pop > 100000000)
 ```
 
 ```
-## Error in gapminder %>% filter(FILL_THIS_IN): could not find function "%>%"
+## Error in gapminder %>% filter(pop > 1e+08): could not find function "%>%"
 ```
 
 2. Your turn: of those rows filtered from step 1., only take data from Asia.
 
 
 ```r
+# <- shortcut: ALT + - (alt + dash)
 gapminder %>%
-  filter(FILL_THIS_IN)
+    filter(pop > 10**9) %>%
+    filter(continent == "Asia")
 ```
 
 ```
-## Error in gapminder %>% filter(FILL_THIS_IN): could not find function "%>%"
+## Error in gapminder %>% filter(pop > 10^9) %>% filter(continent == "Asia"): could not find function "%>%"
 ```
 
-3. Repeat 2, but take data from countries Brazil, and China. 
+```r
+gapminder %>%
+  filter(pop > 10**9 & continent == "Asia")
+```
+
+```
+## Error in gapminder %>% filter(pop > 10^9 & continent == "Asia"): could not find function "%>%"
+```
+
+```r
+gapminder %>%
+    filter(pop > 10**9, 
+           continent == "Asia")
+```
+
+```
+## Error in gapminder %>% filter(pop > 10^9, continent == "Asia"): could not find function "%>%"
+```
+
+3. Take data from countries Brazil, and China. 
 
 
 ```r
 gapminder %>%
-  filter(FILL_THIS_IN)
+    filter (country == "Brazil" | country == "China")
 ```
 
 ```
-## Error in gapminder %>% filter(FILL_THIS_IN): could not find function "%>%"
+## Error in gapminder %>% filter(country == "Brazil" | country == "China"): could not find function "%>%"
 ```
 
 ## `mutate()` (10 min)
@@ -237,11 +257,20 @@ Let's get:
 
 ```r
 gapminder %>%
-  mutate(FILL_THIS_IN)
+  mutate(gdbBill = round(gdpPercap*pop/(10**9),2))
 ```
 
 ```
-## Error in gapminder %>% mutate(FILL_THIS_IN): could not find function "%>%"
+## Error in gapminder %>% mutate(gdbBill = round(gdpPercap * pop/(10^9), : could not find function "%>%"
+```
+
+```r
+gapminder %>%
+    mutate(gdpBill = (gdpPercap*pop/(10**9)) %>% round(2))
+```
+
+```
+## Error in gapminder %>% mutate(gdpBill = (gdpPercap * pop/(10^9)) %>% round(2)): could not find function "%>%"
 ```
 
 Notice the backwards compatibility! No need for loops!
@@ -251,11 +280,11 @@ Try the same thing, but with `transmute` (drops all other variables).
 
 ```r
 gapminder %>%
-  transmute(FILL_THIS_IN)
+  transmute(country,gdbBill = round(gdpPercap*pop/(10**9),2))
 ```
 
 ```
-## Error in gapminder %>% transmute(FILL_THIS_IN): could not find function "%>%"
+## Error in gapminder %>% transmute(country, gdbBill = round(gdpPercap * : could not find function "%>%"
 ```
 
 The `if_else` function is useful for changing certain elements in a data frame.
@@ -265,16 +294,34 @@ Example: Suppose Canada's 1952 life expectancy was mistakenly entered as 68.8 in
 
 ```r
 gapminder %>%
-  mutate(FILL_THIS_IN)
+  mutate(lifeExp = if_else(country == "Canada" & year == 1952, 70, lifeExp))
 ```
 
 ```
-## Error in gapminder %>% mutate(FILL_THIS_IN): could not find function "%>%"
+## Error in gapminder %>% mutate(lifeExp = if_else(country == "Canada" & : could not find function "%>%"
+```
+
+```r
+gapminder %>%
+  mutate(lifeExp = if_else(country == "Canada" & year == 1952, 70, lifeExp)) %>%
+    filter(country == "Canada",year == 1952)
+```
+
+```
+## Error in gapminder %>% mutate(lifeExp = if_else(country == "Canada" & : could not find function "%>%"
 ```
 
 Your turn: Make a new column called `cc` that pastes the country name followed by the continent, separated by a comma. (Hint: use the `paste` function with the `sep=", "` argument).
 
 
+```r
+gapminder %>%
+    mutate(cc = paste(country,continent, sep=", "))
+```
+
+```
+## Error in gapminder %>% mutate(cc = paste(country, continent, sep = ", ")): could not find function "%>%"
+```
 
 These functions we've seen are called __vectorized functions__.
 

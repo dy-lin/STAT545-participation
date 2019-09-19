@@ -377,17 +377,16 @@ summary {
 <h1>Intro to <code>dplyr</code> syntax</h1>
 <p>Load the <code>gapminder</code> and <code>tidyverse</code> packages. Hint: <code>suppressPackageStartupMessages()</code>! - This loads <code>dplyr</code>, too.</p>
 <pre class="r"><code># load your packages here:
-library(FILL_THIS_IN)</code></pre>
-<pre><code>## Error in library(FILL_THIS_IN): there is no package called 'FILL_THIS_IN'</code></pre>
-<pre class="r"><code>library(FILL_THIS_IN)</code></pre>
-<pre><code>## Error in library(FILL_THIS_IN): there is no package called 'FILL_THIS_IN'</code></pre>
+library(gapminder)
+library(Ftidyverse)</code></pre>
+<pre><code>## Error in library(Ftidyverse): there is no package called 'Ftidyverse'</code></pre>
 <div id="select-8-min" class="section level2">
 <h2><code>select()</code> (8 min)</h2>
 <ol style="list-style-type: decimal">
 <li>Make a data frame containing the columns <code>year</code>, <code>lifeExp</code>, <code>country</code> from the gapminder data, in that order.</li>
 </ol>
-<pre class="r"><code>select(gapminder, FILL_THIS_IN)</code></pre>
-<pre><code>## Error in select(gapminder, FILL_THIS_IN): could not find function &quot;select&quot;</code></pre>
+<pre class="r"><code>select(gapminder, year, lifeExp, country)</code></pre>
+<pre><code>## Error in select(gapminder, year, lifeExp, country): could not find function &quot;select&quot;</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Select all variables, from <code>country</code> to <code>lifeExp</code>.</li>
 </ol>
@@ -395,44 +394,44 @@ library(FILL_THIS_IN)</code></pre>
 select(gapminder, country, continent, year, lifeExp)</code></pre>
 <pre><code>## Error in select(gapminder, country, continent, year, lifeExp): could not find function &quot;select&quot;</code></pre>
 <pre class="r"><code># Better way:
-select(gapminder, FILL_THIS_IN)</code></pre>
-<pre><code>## Error in select(gapminder, FILL_THIS_IN): could not find function &quot;select&quot;</code></pre>
+select(gapminder, country:lifeExp)</code></pre>
+<pre><code>## Error in select(gapminder, country:lifeExp): could not find function &quot;select&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Select all variables, except <code>lifeExp</code>.</li>
 </ol>
-<pre class="r"><code>select(gapminder, FILL_THIS_IN)</code></pre>
-<pre><code>## Error in select(gapminder, FILL_THIS_IN): could not find function &quot;select&quot;</code></pre>
+<pre class="r"><code>select(gapminder, -lifeExp)</code></pre>
+<pre><code>## Error in select(gapminder, -lifeExp): could not find function &quot;select&quot;</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Put <code>continent</code> first. Hint: use the <code>everything()</code> function.</li>
 </ol>
-<pre class="r"><code>select(gapminder, FILL_THIS_IN, FILL_THIS_IN)</code></pre>
-<pre><code>## Error in select(gapminder, FILL_THIS_IN, FILL_THIS_IN): could not find function &quot;select&quot;</code></pre>
+<pre class="r"><code>select(gapminder, continent, everything())</code></pre>
+<pre><code>## Error in select(gapminder, continent, everything()): could not find function &quot;select&quot;</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Rename <code>continent</code> to <code>cont</code>.</li>
 </ol>
 <pre class="r"><code># compare
-select(gapminder, FILL_THIS_IN)</code></pre>
-<pre><code>## Error in select(gapminder, FILL_THIS_IN): could not find function &quot;select&quot;</code></pre>
-<pre class="r"><code>rename(gapminder, FILL_THIS_IN)</code></pre>
-<pre><code>## Error in rename(gapminder, FILL_THIS_IN): could not find function &quot;rename&quot;</code></pre>
+select(gapminder, cont = continent, everything())</code></pre>
+<pre><code>## Error in select(gapminder, cont = continent, everything()): could not find function &quot;select&quot;</code></pre>
+<pre class="r"><code>rename(gapminder, cont = continent)</code></pre>
+<pre><code>## Error in rename(gapminder, cont = continent): could not find function &quot;rename&quot;</code></pre>
 </div>
 <div id="arrange-8-min" class="section level2">
 <h2><code>arrange()</code> (8 min)</h2>
 <ol style="list-style-type: decimal">
 <li>Order by year.</li>
 </ol>
-<pre class="r"><code>arrange(gapminder, FILL_THIS_IN)</code></pre>
-<pre><code>## Error in arrange(gapminder, FILL_THIS_IN): could not find function &quot;arrange&quot;</code></pre>
+<pre class="r"><code>arrange(gapminder, year)</code></pre>
+<pre><code>## Error in arrange(gapminder, year): could not find function &quot;arrange&quot;</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Order by year, in descending order.</li>
 </ol>
-<pre class="r"><code>arrange(gapminder, FILL_THIS_IN)</code></pre>
-<pre><code>## Error in arrange(gapminder, FILL_THIS_IN): could not find function &quot;arrange&quot;</code></pre>
+<pre class="r"><code>arrange(gapminder, desc(year))</code></pre>
+<pre><code>## Error in arrange(gapminder, desc(year)): could not find function &quot;arrange&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Order by year, then by life expectancy.</li>
 </ol>
-<pre class="r"><code>arrange(gapminder, FILL_THIS_IN, FILL_THIS_IN)</code></pre>
-<pre><code>## Error in arrange(gapminder, FILL_THIS_IN, FILL_THIS_IN): could not find function &quot;arrange&quot;</code></pre>
+<pre class="r"><code>arrange(gapminder, year, lifeExp)</code></pre>
+<pre><code>## Error in arrange(gapminder, year, lifeExp): could not find function &quot;arrange&quot;</code></pre>
 </div>
 <div id="piping-8-min" class="section level2">
 <h2>Piping, <code>%&gt;%</code> (8 min)</h2>
@@ -444,8 +443,11 @@ select(gapminder, FILL_THIS_IN)</code></pre>
 arrange(select(gapminder, year, lifeExp, country), year, lifeExp)</code></pre>
 <p>Now using with pipes:</p>
 <pre class="r"><code># alter the below to include 2 &quot;pipes&quot;
-arrange(select(gapminder, year, lifeExp, country), year, lifeExp)</code></pre>
-<pre><code>## Error in arrange(select(gapminder, year, lifeExp, country), year, lifeExp): could not find function &quot;arrange&quot;</code></pre>
+gapminder %&gt;%
+    select(year, lifeExp, country) %&gt;%
+    arrange(year,lifeExp)</code></pre>
+<pre><code>## Error in gapminder %&gt;% select(year, lifeExp, country) %&gt;% arrange(year, : could not find function &quot;%&gt;%&quot;</code></pre>
+<pre class="r"><code># shortcut for pipe: CMD + SHIFT + M</code></pre>
 </div>
 </div>
 <div id="resume-lecture" class="section level1">
@@ -457,20 +459,29 @@ arrange(select(gapminder, year, lifeExp, country), year, lifeExp)</code></pre>
 <li>Only take data with population greater than 100 million.</li>
 </ol>
 <pre class="r"><code>gapminder %&gt;%
-  filter(FILL_THIS_IN)</code></pre>
-<pre><code>## Error in gapminder %&gt;% filter(FILL_THIS_IN): could not find function &quot;%&gt;%&quot;</code></pre>
+  filter(pop &gt; 100000000)</code></pre>
+<pre><code>## Error in gapminder %&gt;% filter(pop &gt; 1e+08): could not find function &quot;%&gt;%&quot;</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Your turn: of those rows filtered from step 1., only take data from Asia.</li>
 </ol>
+<pre class="r"><code># &lt;- shortcut: ALT + - (alt + dash)
+gapminder %&gt;%
+    filter(pop &gt; 10**9) %&gt;%
+    filter(continent == &quot;Asia&quot;)</code></pre>
+<pre><code>## Error in gapminder %&gt;% filter(pop &gt; 10^9) %&gt;% filter(continent == &quot;Asia&quot;): could not find function &quot;%&gt;%&quot;</code></pre>
 <pre class="r"><code>gapminder %&gt;%
-  filter(FILL_THIS_IN)</code></pre>
-<pre><code>## Error in gapminder %&gt;% filter(FILL_THIS_IN): could not find function &quot;%&gt;%&quot;</code></pre>
+  filter(pop &gt; 10**9 &amp; continent == &quot;Asia&quot;)</code></pre>
+<pre><code>## Error in gapminder %&gt;% filter(pop &gt; 10^9 &amp; continent == &quot;Asia&quot;): could not find function &quot;%&gt;%&quot;</code></pre>
+<pre class="r"><code>gapminder %&gt;%
+    filter(pop &gt; 10**9, 
+           continent == &quot;Asia&quot;)</code></pre>
+<pre><code>## Error in gapminder %&gt;% filter(pop &gt; 10^9, continent == &quot;Asia&quot;): could not find function &quot;%&gt;%&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Repeat 2, but take data from countries Brazil, and China.</li>
+<li>Take data from countries Brazil, and China.</li>
 </ol>
 <pre class="r"><code>gapminder %&gt;%
-  filter(FILL_THIS_IN)</code></pre>
-<pre><code>## Error in gapminder %&gt;% filter(FILL_THIS_IN): could not find function &quot;%&gt;%&quot;</code></pre>
+    filter (country == &quot;Brazil&quot; | country == &quot;China&quot;)</code></pre>
+<pre><code>## Error in gapminder %&gt;% filter(country == &quot;Brazil&quot; | country == &quot;China&quot;): could not find function &quot;%&gt;%&quot;</code></pre>
 </div>
 <div id="mutate-10-min" class="section level2">
 <h2><code>mutate()</code> (10 min)</h2>
@@ -480,19 +491,29 @@ arrange(select(gapminder, year, lifeExp, country), year, lifeExp)</code></pre>
 <li>GDP in billions, named (<code>gdpBill</code>), rounded to two decimals.</li>
 </ul>
 <pre class="r"><code>gapminder %&gt;%
-  mutate(FILL_THIS_IN)</code></pre>
-<pre><code>## Error in gapminder %&gt;% mutate(FILL_THIS_IN): could not find function &quot;%&gt;%&quot;</code></pre>
+  mutate(gdbBill = round(gdpPercap*pop/(10**9),2))</code></pre>
+<pre><code>## Error in gapminder %&gt;% mutate(gdbBill = round(gdpPercap * pop/(10^9), : could not find function &quot;%&gt;%&quot;</code></pre>
+<pre class="r"><code>gapminder %&gt;%
+    mutate(gdpBill = (gdpPercap*pop/(10**9)) %&gt;% round(2))</code></pre>
+<pre><code>## Error in gapminder %&gt;% mutate(gdpBill = (gdpPercap * pop/(10^9)) %&gt;% round(2)): could not find function &quot;%&gt;%&quot;</code></pre>
 <p>Notice the backwards compatibility! No need for loops!</p>
 <p>Try the same thing, but with <code>transmute</code> (drops all other variables).</p>
 <pre class="r"><code>gapminder %&gt;%
-  transmute(FILL_THIS_IN)</code></pre>
-<pre><code>## Error in gapminder %&gt;% transmute(FILL_THIS_IN): could not find function &quot;%&gt;%&quot;</code></pre>
+  transmute(country,gdbBill = round(gdpPercap*pop/(10**9),2))</code></pre>
+<pre><code>## Error in gapminder %&gt;% transmute(country, gdbBill = round(gdpPercap * : could not find function &quot;%&gt;%&quot;</code></pre>
 <p>The <code>if_else</code> function is useful for changing certain elements in a data frame.</p>
 <p>Example: Suppose Canada’s 1952 life expectancy was mistakenly entered as 68.8 in the data frame, but is actually 70. Fix it using <code>if_else</code> and <code>mutate</code>.</p>
 <pre class="r"><code>gapminder %&gt;%
-  mutate(FILL_THIS_IN)</code></pre>
-<pre><code>## Error in gapminder %&gt;% mutate(FILL_THIS_IN): could not find function &quot;%&gt;%&quot;</code></pre>
+  mutate(lifeExp = if_else(country == &quot;Canada&quot; &amp; year == 1952, 70, lifeExp))</code></pre>
+<pre><code>## Error in gapminder %&gt;% mutate(lifeExp = if_else(country == &quot;Canada&quot; &amp; : could not find function &quot;%&gt;%&quot;</code></pre>
+<pre class="r"><code>gapminder %&gt;%
+  mutate(lifeExp = if_else(country == &quot;Canada&quot; &amp; year == 1952, 70, lifeExp)) %&gt;%
+    filter(country == &quot;Canada&quot;,year == 1952)</code></pre>
+<pre><code>## Error in gapminder %&gt;% mutate(lifeExp = if_else(country == &quot;Canada&quot; &amp; : could not find function &quot;%&gt;%&quot;</code></pre>
 <p>Your turn: Make a new column called <code>cc</code> that pastes the country name followed by the continent, separated by a comma. (Hint: use the <code>paste</code> function with the <code>sep=&quot;, &quot;</code> argument).</p>
+<pre class="r"><code>gapminder %&gt;%
+    mutate(cc = paste(country,continent, sep=&quot;, &quot;))</code></pre>
+<pre><code>## Error in gapminder %&gt;% mutate(cc = paste(country, continent, sep = &quot;, &quot;)): could not find function &quot;%&gt;%&quot;</code></pre>
 <p>These functions we’ve seen are called <strong>vectorized functions</strong>.</p>
 </div>
 <div id="git-stuff-optional" class="section level2">
