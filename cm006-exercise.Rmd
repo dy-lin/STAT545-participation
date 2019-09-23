@@ -28,7 +28,7 @@ Load the `gapminder` and `tidyverse` packages. Hint: `suppressPackageStartupMess
 ```{r load packages, warning = FALSE, message = FALSE}
 # load your packages here:
 library(gapminder)
-library(Ftidyverse)
+library(tidyverse)
 ```
     
 
@@ -188,6 +188,7 @@ Example: Suppose Canada's 1952 life expectancy was mistakenly entered as 68.8 in
 gapminder %>%
   mutate(lifeExp = if_else(country == "Canada" & year == 1952, 70, lifeExp))
 
+# To double check that it worked:
 gapminder %>%
   mutate(lifeExp = if_else(country == "Canada" & year == 1952, 70, lifeExp)) %>%
     filter(country == "Canada",year == 1952)
