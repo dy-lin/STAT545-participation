@@ -1,4 +1,7 @@
 # Class Meeting 07
+## Files
+* [`cm007-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm007/cm007-exercise.html)
+
 ## Instructions
 ```
 suppressPackageStartupMessages(library(tidyverse))
