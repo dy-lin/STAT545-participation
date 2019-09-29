@@ -1,5 +1,8 @@
 # Class Meeting 08
 
+## Files
+* [`cm008-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm008/cm008-exercise.html)
+
 ## Instructions
 
 ### Viewing and linking to HTML files
