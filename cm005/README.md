@@ -1,5 +1,8 @@
 # Class Meeting 05
 
+## Files
+* [`cm005-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm005/cm005-exercise.html)
+
 ## Instructions
 Set up the workspace:
 ````
