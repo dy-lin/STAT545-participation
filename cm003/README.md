@@ -1,5 +1,10 @@
 # Class Meeting 03
 
+## Files
+* [`navigating_github.html`](https://dy-lin.github.io/STAT545-participation/cm003/navigating_github.html)
+* [`rmd_exploration.html`](https://dy-lin.github.io/STAT545-participation/cm003/rmd_exploration.html)
+* [`rmd_exploration-slides.html`](https://dy-lin.github.io/STAT545-participation/cm003/rmd_exploration-slides.html)
+
 ## Instructions
 
 ### Activty: Modfiy [`navigating_github.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm001/navigating_github.md)
