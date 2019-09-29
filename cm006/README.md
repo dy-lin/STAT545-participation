@@ -1,4 +1,7 @@
 # Class Meeting 06
+## Files
+* [`cm006-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm006/cm006-exercise.html)
+
 ## Instructions
 ### Demonstration
 Let’s get started with the exercise:
