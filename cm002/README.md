@@ -1,6 +1,8 @@
 # Class Meeting 02
+This folder does not have a GitHub Pages `HTML` link as this lecture was about R scripts.
 
 ## Instructions
+These instructions were taken from the Class Meeting 02 [section](https://stat545guidebook.netlify.com/introduction-to-r.html) of the guide.
 
 ### Using R and RStudio
 

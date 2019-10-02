@@ -3,6 +3,8 @@
 * [`cm006-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm006/cm006-exercise.html)
 
 ## Instructions
+These instructions were taken from the Class Meeting 006 [section](https://stat545guidebook.netlify.com/intro-to-data-wrangling-part-i.html) of the guide.
+
 ### Demonstration
 Let’s get started with the exercise:
 

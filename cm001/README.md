@@ -1,6 +1,8 @@
 # Class Meeting 001
+This folder does not contain a GitHub pages `HTML` link, as this lecture was about GitHub-flavoured Markdown.
 
 ## Instructions
+These instructions were taken from the Class Meeting 001 [section](https://stat545guidebook.netlify.com/introduction-to-stat-545-and-github.html) section of the guide.
 
 ### Navigating GitHub
 

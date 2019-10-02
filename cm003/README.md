@@ -6,6 +6,7 @@
 * [`rmd_exploration-slides.html`](https://dy-lin.github.io/STAT545-participation/cm003/rmd_exploration-slides.html)
 
 ## Instructions
+These instructions were taken from the Class Meeting 03 [section](https://stat545guidebook.netlify.com/authoring.html) of the guide.
 
 ### Activty: Modfiy [`navigating_github.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm001/navigating_github.md)
 Together:

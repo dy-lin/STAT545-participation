@@ -4,6 +4,7 @@
 * [`cm008-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm008/cm008-exercise.html)
 
 ## Instructions
+These instructions were taken from the Class Meeting 008 [section](https://stat545guidebook.netlify.com/intro-to-plotting-with-ggplot2-part-ii.html) of the guide.
 
 ### Viewing and linking to HTML files
 
