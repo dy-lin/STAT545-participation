@@ -1,4 +1,4 @@
-# Class Meeting 03
+# Class Meeting 003
 
 ## Files
 * [`navigating_github.html`](https://dy-lin.github.io/STAT545-participation/cm003/navigating_github.html)
