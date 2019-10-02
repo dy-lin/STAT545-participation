@@ -1,4 +1,4 @@
-# Class Meeting 08
+# Class Meeting 008
 
 ## Files
 * [`cm008-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm008/cm008-exercise.html)
