@@ -1,4 +1,4 @@
-# Class Meeting 04
+# Class Meeting 004
 This folder does not have a GitHub Pages `HTML` link as it was about branching and merging on GitHub.
 
 ## Note
