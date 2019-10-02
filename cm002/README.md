@@ -1,4 +1,4 @@
-# Class Meeting 02
+# Class Meeting 002
 This folder does not have a GitHub Pages `HTML` link as this lecture was about R scripts.
 
 ## Instructions
