@@ -34,14 +34,21 @@ After fixing the error, fix the overlapping problem in the following plot (attri
 
 
 ```r
-ggplot(mpg, aes(cty, hwy)) %>% 
-  geom_point()
+ggplot(mpg, aes(cty, hwy)) +
+  geom_jitter()
 ```
 
+![](cm008-exercise_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+
+```r
+ggplot(mpg,aes(cty,hwy)) +
+    geom_jitter(alpha = 0.5, size =1) +
+    geom_smooth(method = "lm") +
+    theme_bw()
 ```
-## Error: `mapping` must be created by `aes()`
-## Did you use %>% instead of +?
-```
+
+![](cm008-exercise_files/figure-html/unnamed-chunk-2-2.png)<!-- -->
+
 
 
 ## Exercise 2: Line for each Country
@@ -51,9 +58,10 @@ Fix this plot so that it shows life expectancy over time _for each country_. Not
 
 ```r
 gapminder %>% 
-  group_by(country) %>% 
-  ggplot(aes(year, lifeExp)) +
-  geom_line()
+#  group_by(country) %>% 
+  ggplot(aes(year, lifeExp, group = country, colour = country == "Rwanda")) +
+  geom_line(alpha = 0.2) +
+  scale_colour_discrete("", labels = c("Other", "Rwanda"))
 ```
 
 ![](cm008-exercise_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
@@ -70,10 +78,15 @@ gapminder %>%
 ```r
 ggplot(gapminder, aes(gdpPercap, lifeExp)) +
   geom_point(alpha = 0.2) +
-  scale_x_log10()
+  scale_x_log10(labels = comma_format()) +
+  facet_wrap(~ continent)
 ```
 
 ![](cm008-exercise_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+
+```r
+#  facet_wrap(~ continent, scales="free")
+```
 
 ### 3(b) Bubble Plot
 
@@ -86,13 +99,28 @@ ggplot(gapminder, aes(gdpPercap, lifeExp)) +
 ```r
 gapminder %>% 
   filter(continent != "Oceania") %>% 
-  ggplot(aes(gdpPercap, lifeExp)) +
-  facet_wrap(~ continent) +
-  geom_point(alpha = 0.2) +
+  ggplot(aes(gdpPercap, lifeExp, size = pop, fill = continent)) +
+  facet_wrap(~ continent, nrow = 1) +
+  geom_point(alpha = 0.5, shape = 21) +
   scale_x_log10(labels = scales::comma_format())
 ```
 
 ![](cm008-exercise_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+
+```r
+  scale_size_area()
+```
+
+```
+## <ScaleContinuous>
+##  Range:  
+##  Limits:    0 --    1
+```
+
+```r
+ # colour identifies with perimeter/outside of the object
+ # fill identifies with the fill of the shape
+```
 
 A list of shapes can be found [at the bottom of the `scale_shape` documentation](https://ggplot2.tidyverse.org/reference/scale_shape.html).
 
@@ -159,9 +187,12 @@ We're starting with the same plot as above, but instead of the points + boxplot,
 ```r
 gapminder %>% 
   filter(continent == "Americas") %>% 
-  ggplot(aes(country, lifeExp)) + 
-  geom_point() +
-  geom_boxplot()
+  ggplot(aes(lifeExp, country)) + 
+  geom_density_ridges()
+```
+
+```
+## Picking joint bandwidth of 3.63
 ```
 
 ![](cm008-exercise_files/figure-html/unnamed-chunk-9-1.png)<!-- -->

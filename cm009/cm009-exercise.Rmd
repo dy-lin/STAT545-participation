@@ -1,5 +1,5 @@
 ---
-title: "cm009 Exercises: tidy data"
+title: 'cm009 Exercises: tidy data'
 output: html_notebook
 editor_options: 
   chunk_output_type: inline
@@ -119,9 +119,9 @@ email %>%
 
 ```{r}
 n <- 100
-FILL_THIS_IN(label = FILL_THIS_IN,
-             FILL_THIS_IN = rnorm(n),
-             FILL_THIS_IN)
+tibble(label = "Sample A",
+             x = rnorm(n),
+             y = x + rnorm(n))
 ```
 
 
@@ -147,6 +147,7 @@ experiment <- tibble(
   measurement_1 = runif(6),
   measurement_2 = runif(6)
 )
+experiment %>% complete(nesting(name, trt), rep)
 experiment %>% expand(name, trt, rep)
 ```
 
