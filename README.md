@@ -14,6 +14,7 @@ This is the participation repository for STAT 545. This repository will hold all
 | [cm007](https://github.com/dy-lin/STAT545-participation/tree/master/cm007) | [`cm007-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm007/cm007-exercise.html)  |
 | [cm008](https://github.com/dy-lin/STAT545-participation/tree/master/cm008) | [`cm008-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm008/cm008-exercise.html)  |
 | [cm009](https://github.com/dy-lin/STAT545-participation/tree/master/cm009) | [`cm009-exercise.nb.html`](https://dy-lin.github.io/STAT545-participation/cm009/cm009-exercise.nb.html)  |
+| [cm010](https://github.com/dy-lin/STAT545-participation/tree/master/cm010) | [`cm009-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm009/cm010-exercise.html) |
 
 ## Instructions
 These instructions were taken from the Participation Assessment [webpage](https://stat545.stat.ubc.ca/evaluation/participation/) of the course website.
