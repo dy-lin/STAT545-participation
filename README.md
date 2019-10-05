@@ -5,10 +5,10 @@ This is the participation repository for STAT 545. This repository will hold all
 
 | Class Meeting | `HTML` files |
 | ------------- | ------------- |
-| [cm001](https://github.com/dy-lin/STAT545-participation/tree/master/cm001)  | not applicable |
-| [cm002](https://github.com/dy-lin/STAT545-participation/tree/master/cm002) | not applicable  |
+| [cm001](https://github.com/dy-lin/STAT545-participation/tree/master/cm001)  | NA; [`navigating_github.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm001/navigating_github.md) |
+| [cm002](https://github.com/dy-lin/STAT545-participation/tree/master/cm002) | NA; [`r-exploration.R`](https://github.com/dy-lin/STAT545-participation/blob/master/cm002/cm002-r_exploration.R)  |
 | [cm003](https://github.com/dy-lin/STAT545-participation/tree/master/cm003) | [`navigating_github.html`](https://dy-lin.github.io/STAT545-participation/cm003/navigating_github.html)<br/>[`rmd_exploration.html`](https://dy-lin.github.io/STAT545-participation/cm003/rmd_exploration.html)<br/>[`rmd_exploration-slides.html`](rmd_exploration-slides.html)  |
-| [cm004](https://github.com/dy-lin/STAT545-participation/tree/master/cm004) | not applicable |
+| [cm004](https://github.com/dy-lin/STAT545-participation/tree/master/cm004) | NA; [`cm004` tagged release](https://github.com/dy-lin/STAT545-participation/tree/cm004) |
 | [cm005](https://github.com/dy-lin/STAT545-participation/tree/master/cm005) |[`cm005-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm005/cm005-exercise.html)|
 | [cm006](https://github.com/dy-lin/STAT545-participation/tree/master/cm006) | [`cm006-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm006/cm006-exercise.html) |
 | [cm007](https://github.com/dy-lin/STAT545-participation/tree/master/cm007) | [`cm007-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm007/cm007-exercise.html)  |
