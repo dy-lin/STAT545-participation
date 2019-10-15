@@ -4,6 +4,9 @@ This folder does not have a GitHub Pages `HTML` link as this lecture was about R
 ## Instructions
 These instructions were taken from the Class Meeting 02 [section](https://stat545guidebook.netlify.com/introduction-to-r.html) of the guide.
 
+## Files
+* [`r-exploration.R`](https://github.com/dy-lin/STAT545-participation/blob/master/cm002/cm002-r_exploration.R)
+
 ### Using R and RStudio
 
 Let’s try these exercises as our first steps.
