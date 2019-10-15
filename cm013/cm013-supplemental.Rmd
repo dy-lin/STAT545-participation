@@ -4,6 +4,7 @@ output:
   html_document:
     keep_md: true
     theme: paper
+    toc: true
 ---
 
 ```{r}
@@ -19,9 +20,9 @@ library(gapminder)
     - Practice by saving the following plot to file: 
 
 ```{r}
-ggplot(mtcars, aes(hp, wt)) + 
-    geom_point()
-ggsave(FILENAME_HERE, PLOT_OBJECT_HERE)
+(p <- ggplot(mtcars, aes(hp, wt)) + 
+    geom_point())
+ggsave("~/STAT545-participation/cm013/mtcars.png", p)
 ```
 
 - Base R way: print plots "to screen", sandwiched between `pdf()`/`jpeg()`/`png()`... and `dev.off()`. 
@@ -51,9 +52,9 @@ p_scales +
     scale_x_log10() +
     scale_colour_continuous(
         trans  = "log10", 
-        breaks = FILL_IN_BREAKS
+        breaks = 10^(1:10)
     ) +
-    FILL_IN_SCALE_FUNCTION(breaks=FILL_IN_BREAKS)
+    scale_y_continuous(breaks=10*(1:10))
 ```
 
 2. Specify `scales::*_format` in the `labels` argument of a scale function to do the following:
@@ -63,11 +64,11 @@ p_scales +
 ```{r}
 library(scales)
 p_scales +
-    scale_x_log10(labels=FILL_THIS_IN) +
+    scale_x_log10(labels=scales::dollar_format()) +
     scale_colour_continuous(
         trans  = "log10", 
         breaks = 10^(1:10),
-        labels = FILL_THIS_IN
+        labels = scales::comma_format()
     ) +
     scale_y_continuous(breaks=10*(1:10))
 ```
@@ -80,11 +81,11 @@ p_scales +
 RColorBrewer::display.brewer.all()
 p_scales +
     scale_x_log10(labels=dollar_format()) +
-    FILL_IN_WITH_RCOLORBREWER(
+    scale_colour_distiller(
         trans   = "log10",
         breaks  = 10^(1:10),
         labels  = comma_format(),
-        palette = FILL_THIS_IN
+        palette = "Purples"
     ) +
     scale_y_continuous(breaks=10*(1:10))
 ```
@@ -96,11 +97,11 @@ p_scales +
 ```{r}
 p_scales +
     scale_x_log10(labels=dollar_format()) +
-    FILL_IN_WITH_RCOLORBREWER(
+    scale_colour_viridis_c(
         trans   = "log10",
         breaks  = 10^(1:10),
         labels  = comma_format(),
-        palette = FILL_THIS_IN
+        option = "E"
     ) +
     scale_y_continuous(breaks=10*(1:10))
 ```
@@ -132,8 +133,8 @@ ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
           y = "Sepal Length",
           title = "Sepal sizes of three plant species") +
     theme_bw() +
-    theme(FILL_IN_ARG_FOR_AXIS_TITLE = FILL_THIS_IN,
-          strip.background = FILL_THIS_IN)
+    theme(axis.title = element_text(size = 28),
+          strip.background = element_rect())
 ```
 
 
@@ -161,7 +162,9 @@ Consider the following plot:
 1. Convert it to a `plotly` object by applying the `ggplotly()` function:
 
 ```{r}
-FILL_THIS_IN
+library(plotly)
+p %>%
+  ggplotly()
 ```
 
 2. You can save a plotly graph locally as an html file. Try saving the above:
@@ -170,13 +173,14 @@ FILL_THIS_IN
 ```{r}
 p %>% 
     ggplotly() %>% 
-    htmlwidgets::saveWidget("LOCATION_GOES_HERE")
+    htmlwidgets::saveWidget("~/STAT545-participation/cm013/plotly-widget.html")
 ```
 
 
 3. Run this code to see the json format underneath:
 
 ```{r}
+library(listviewer)
 p %>% 
     ggplotly() %>% 
     plotly_json()
@@ -202,7 +206,7 @@ plot_ly(gapminder,
 plot_ly(gapminder, 
         x = ~gdpPercap, 
         y = ~lifeExp, 
-        z = FILL_THIS_IN,
+        z = ~pop,
         type = "scatter3d",
         mode = "markers",
         opacity = 0.2)
