@@ -15,8 +15,8 @@ This is the participation repository for STAT 545. This repository will hold all
 | [cm008](https://github.com/dy-lin/STAT545-participation/tree/master/cm008) | [`cm008-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm008/cm008-exercise.html)  |
 | [cm009](https://github.com/dy-lin/STAT545-participation/tree/master/cm009) | [`cm009-exercise.nb.html`](https://dy-lin.github.io/STAT545-participation/cm009/cm009-exercise.nb.html)  |
 | [cm010](https://github.com/dy-lin/STAT545-participation/tree/master/cm010) | [`cm010-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm010/cm010-exercise.html) |
-| [cm011](https://github.com/dy-lin/STAT545-participation/tree/master/cm011) | - |
-| [cm012](https://github.com/dy-lin/STAT545-participation/tree/master/cm012) | [`cm012-exercise.html`](https://dy-lin.github    .io/STAT545-participation/cm012/cm012-exercise.html) |
+| [cm011](https://github.com/dy-lin/STAT545-participation/tree/master/cm011) | - <!--[`cm011-exercise.R`](https://dy-lin.github.io/STAT545-participation/cm011/cm011-exercise.R)-->|
+| [cm012](https://github.com/dy-lin/STAT545-participation/tree/master/cm012) | [`cm012-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm012/cm012-exercise.html) |
 | [cm013](https://github.com/dy-lin/STAT545-participation/tree/master/cm013) | [`cm013-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm013/cm013-exercise.html)<!--<br/>[`cm0013-supplemental.html`]()--> |
 
 ## Instructions
