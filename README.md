@@ -14,7 +14,10 @@ This is the participation repository for STAT 545. This repository will hold all
 | [cm007](https://github.com/dy-lin/STAT545-participation/tree/master/cm007) | [`cm007-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm007/cm007-exercise.html)  |
 | [cm008](https://github.com/dy-lin/STAT545-participation/tree/master/cm008) | [`cm008-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm008/cm008-exercise.html)  |
 | [cm009](https://github.com/dy-lin/STAT545-participation/tree/master/cm009) | [`cm009-exercise.nb.html`](https://dy-lin.github.io/STAT545-participation/cm009/cm009-exercise.nb.html)  |
-| [cm010](https://github.com/dy-lin/STAT545-participation/tree/master/cm010) | [`cm010-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm009/cm010-exercise.html) |
+| [cm010](https://github.com/dy-lin/STAT545-participation/tree/master/cm010) | [`cm010-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm010/cm010-exercise.html) |
+| [cm011](https://github.com/dy-lin/STAT545-participation/tree/master/cm011) | - |
+| [cm012](https://github.com/dy-lin/STAT545-participation/tree/master/cm012) | [`cm012-exercise.html`](https://dy-lin.github    .io/STAT545-participation/cm012/cm012-exercise.html) |
+| [cm013](https://github.com/dy-lin/STAT545-participation/tree/master/cm013) | [`cm013-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm013/cm013-exercise.html)<!--<br/>[`cm0013-supplemental.html`]()--> |
 
 ## Instructions
 These instructions were taken from the Participation Assessment [webpage](https://stat545.stat.ubc.ca/evaluation/participation/) of the course website.
@@ -33,6 +36,7 @@ Your repository should be complete with all in-class exercises. Your work should
 
 Each of the 14 classes wil receive equal weight here (5% per class).
 
+<!-- #####  Participation Checklist -->
 #### Documentation (30%)
 
 Your repository should be _well-documented_.
