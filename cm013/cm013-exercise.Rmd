@@ -109,6 +109,7 @@ Great resource for selecting the right plot: https://www.data-to-viz.com/ ; enco
 ### Case Study 3: Case for pie charts
 
 _Rushed through this case study, no figure shown:_
+
 * Do not make pie charts (universally hated)
 
 ## Part 3: Principles of effective visualizations [20 mins]
