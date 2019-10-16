@@ -5,6 +5,12 @@
 * [`rmd_exploration.html`](https://dy-lin.github.io/STAT545-participation/cm003/rmd_exploration.html)
 * [`rmd_exploration-slides.html`](https://dy-lin.github.io/STAT545-participation/cm003/rmd_exploration-slides.html)
 
+## Checklist
+- [x] Populate `navigating_github.md` document with some markdown features
+- [x] Convert the `.md` file into both `pdf` and `html` and add them to your repo
+- [x] Upload `rmd_exploration.Rmd` and its output formats (`md`, `pdf` and `html`)
+- [x] Upload `rmd_exploration-slides.Rmd` both as `Rmd` and `html` (or `pdf`) formats
+
 ## Instructions
 These instructions were taken from the Class Meeting 03 [section](https://stat545guidebook.netlify.com/authoring.html) of the guide.
 
