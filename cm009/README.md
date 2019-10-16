@@ -2,6 +2,10 @@
 ## Files
 * [`cm009-exercise.nb.html`](https://dy-lin.github.io/STAT545-participation/cm009/cm009-exercise.nb.html)
 
+## Checklist
+- [x] Complete `cm009-exercise.Rmd` worksheet
+- [x] Submit `.Rmd` file along with knitted version of your choice (`pdf`, `md` or `html` format)
+
 ## Instructions
 These instructions were taken from the Class Meeting 009 [section](https://stat545guidebook.netlify.com/tidy-data-and-pivoting.html) from the guide.
 
