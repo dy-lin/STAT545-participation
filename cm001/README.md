@@ -3,6 +3,12 @@ This folder does not contain a GitHub pages `HTML` link, as this lecture was abo
 
 ## Files
 * [`navigating_github.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm001/navigating_github.md)
+
+## Checklist
+- [x] Register a GitHub account
+- [x] Share your username by filling out this [survey](https://ubc.ca1.qualtrics.com/jfe/form/SV_8jKz3FaT7w5EHfT)
+- [x] Create and populate `navigating_github.md` with several links
+
 ## Instructions
 These instructions were taken from the Class Meeting 001 [section](https://stat545guidebook.netlify.com/introduction-to-stat-545-and-github.html) section of the guide.
 
@@ -22,7 +28,3 @@ These instructions were taken from the Class Meeting 001 [section](https://stat5
     * The URL to your user account page
 1. Your turn: Commit the changes.
 
-## Checklist
-- [x] Register a GitHub account
-- [x] Share your username by filling out this [survey](https://ubc.ca1.qualtrics.com/jfe/form/SV_8jKz3FaT7w5EHfT)
-- [x] Create and populate `navigating_github.md` with several links
