@@ -3,6 +3,11 @@
 ## Files
 * [`cm008-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm008/cm008-exercise.html)
 
+## Checklist
+
+- [x] Complete `cm008-exercise.Rmd` worksheet
+- [x] Submit `.Rmd` file along with knitted version of your choice (`pdf`, `md` or `html` format)
+
 ## Instructions
 These instructions were taken from the Class Meeting 008 [section](https://stat545guidebook.netlify.com/intro-to-plotting-with-ggplot2-part-ii.html) of the guide.
 
