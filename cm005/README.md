@@ -7,7 +7,7 @@
 - [x] Complete `cm005-ggplot_intro.Rmd` worksheet.
 
 ## Instructions
-These instructions were taken from the Class Meeting 04 [section](https://stat545guidebook.netlify.com/intro-to-plotting-with-ggplot2-part-i.html) of the guide.
+These instructions were taken from the Class Meeting 005 [section](https://stat545guidebook.netlify.com/intro-to-plotting-with-ggplot2-part-i.html) of the guide.
 
 ### Activity
 Fill out this [worksheet](https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/tutorials/cm005-exercise.Rmd).
