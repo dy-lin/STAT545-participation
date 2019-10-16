@@ -5,6 +5,7 @@
 
 ## Checklist
 - [x] Complete `cm005-ggplot_intro.Rmd` worksheet.
+- [x] Submit `.Rmd` file along with knitted version of your choice (`pdf`, `md` or `html` format)
 
 ## Instructions
 These instructions were taken from the Class Meeting 005 [section](https://stat545guidebook.netlify.com/intro-to-plotting-with-ggplot2-part-i.html) of the guide.
