@@ -12,7 +12,7 @@
 - [x] Upload `rmd_exploration-slides.Rmd` both as `Rmd` and `html` (or `pdf`) formats
 
 ## Instructions
-These instructions were taken from the Class Meeting 03 [section](https://stat545guidebook.netlify.com/authoring.html) of the guide.
+These instructions were taken from the Class Meeting 003 [section](https://stat545guidebook.netlify.com/authoring.html) of the guide.
 
 ### Activty: Modfiy [`navigating_github.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm001/navigating_github.md)
 Together:
