@@ -3,6 +3,11 @@
 ## Files
 * [`cm012-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm012/cm012-exercise.html)
 
+## Checklist
+- [x] Complete `cm012-exercise.Rmd` worksheet
+- [x] Submit `.Rmd` file along with knitted version of your choice (`pdf`, `md` or `html` format)
+
+
 ## Instructions
 These instructions were taken from Class Meeting 012 [section](https://stat545guidebook.netlify.com/working-with-factors-in-r.html) from the guide.
 
