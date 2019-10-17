@@ -1,0 +1,2 @@
+cm*/*.html linguist-vendored
+cm*/*.Rmd linguist-detectable=true
