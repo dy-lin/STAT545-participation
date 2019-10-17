@@ -1,2 +1,3 @@
-cm*/*.html linguist-vendored
+cm*/*.html linguist-vendored=true
 cm*/*.Rmd linguist-detectable=true
+*.md linguist-detectable=true
