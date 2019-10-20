@@ -10,6 +10,7 @@ library(tidyverse)
 lotr  <- read_csv("https://raw.githubusercontent.com/jennybc/lotr-tidy/master/data/lotr_tidy.csv")
 guest <- read_csv("https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/data/wedding/attend.csv")
 email <- read_csv("https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/data/wedding/emails.csv")
+library(DT)
 ```
 
 <!---The following chunk allows errors when knitting--->
@@ -23,7 +24,7 @@ knitr::opts_chunk$set(error = TRUE, warning = FALSE)
 Consider the Lord of the Rings data:
 
 ```{r}
-lotr
+datatable(lotr)
 ```
 
 1. Would you say this data is in tidy format?
@@ -33,6 +34,9 @@ lotr
 2. Widen the data so that we see the words spoken by each race, by putting race as its own column.
 
 ```{r}
+
+# pivot_wider/pivot_longer equivalent gather/spread
+
 (lotr_wide <- lotr %>% 
   pivot_wider(id_cols = c(-Race, -Words), 
               names_from = Race, 
@@ -127,6 +131,7 @@ tibble(label = "Sample A",
 
 2. Generate a Gaussian sample of size 100 for each combination of the following means (`mu`) and standard deviations (`sd`).
 
+_Ran out of time:_
 ```{r}
 n <- 100
 mu <- c(-5, 0, 5)
