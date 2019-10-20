@@ -52,9 +52,9 @@ Fix this plot so that it shows life expectancy over time _for each country_. Not
 ```{r, fig.width = 5, fig.height = 2}
 gapminder %>% 
 #  group_by(country) %>% 
-  ggplot(aes(year, lifeExp, group = country, colour = country == "Rwanda")) +
+  ggplot(aes(year, lifeExp, group = country, colour = country == "Canada")) +
   geom_line(alpha = 0.2) +
-  scale_colour_discrete("", labels = c("Other", "Rwanda"))
+  scale_colour_discrete("", labels = c("Other", "Canada"))
 ```
 
 
@@ -82,7 +82,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp)) +
 
 ```{r, fig.width = 8, fig.height = 4}
 gapminder %>% 
-  filter(continent != "Oceania") %>% 
+  filter(continent != "Africa") %>% 
   ggplot(aes(gdpPercap, lifeExp, size = pop, fill = continent)) +
   facet_wrap(~ continent, nrow = 1) +
   geom_point(alpha = 0.5, shape = 21) +
@@ -100,12 +100,13 @@ A list of shapes can be found [at the bottom of the `scale_shape` documentation]
 Instead of alpha transparency, suppose you're wanting to fix the overplotting issue by plotting small points. Why is this not working? Fix it.
 
 ```{r, fig.width = 5, fig.height = 2}
+# move size out of aes()
 ggplot(gapminder) +
-  geom_point(aes(gdpPercap, lifeExp, size = 0.1)) +
+  geom_point(aes(gdpPercap, lifeExp), size = 0.1) +
   scale_x_log10(labels = scales::dollar_format())
 ```
 
-
+_END OF CLASS_
 
 ## Exercise 4: Walking caribou
 

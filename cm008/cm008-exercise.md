@@ -59,9 +59,9 @@ Fix this plot so that it shows life expectancy over time _for each country_. Not
 ```r
 gapminder %>% 
 #  group_by(country) %>% 
-  ggplot(aes(year, lifeExp, group = country, colour = country == "Rwanda")) +
+  ggplot(aes(year, lifeExp, group = country, colour = country == "Canada")) +
   geom_line(alpha = 0.2) +
-  scale_colour_discrete("", labels = c("Other", "Rwanda"))
+  scale_colour_discrete("", labels = c("Other", "Canada"))
 ```
 
 ![](cm008-exercise_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
@@ -98,7 +98,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp)) +
 
 ```r
 gapminder %>% 
-  filter(continent != "Oceania") %>% 
+  filter(continent != "Africa") %>% 
   ggplot(aes(gdpPercap, lifeExp, size = pop, fill = continent)) +
   facet_wrap(~ continent, nrow = 1) +
   geom_point(alpha = 0.5, shape = 21) +
@@ -130,14 +130,15 @@ Instead of alpha transparency, suppose you're wanting to fix the overplotting is
 
 
 ```r
+# move size out of aes()
 ggplot(gapminder) +
-  geom_point(aes(gdpPercap, lifeExp, size = 0.1)) +
+  geom_point(aes(gdpPercap, lifeExp), size = 0.1) +
   scale_x_log10(labels = scales::dollar_format())
 ```
 
 ![](cm008-exercise_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
-
+_END OF CLASS_
 
 ## Exercise 4: Walking caribou
 
