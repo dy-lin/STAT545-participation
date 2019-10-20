@@ -16,6 +16,7 @@ library(tidyverse)
 library(dplyr)
 library(forcats)
 library(ggplot2)
+library(DT)
 ```
 
 ## Motivating the need for factors in R
@@ -35,6 +36,7 @@ library(ggplot2)
 Function `case_when()` is a tidier way to vectorise multiple `if_else()` statements. you can read more about this function [here](https://dplyr.tidyverse.org/reference/case_when.html).
 
 ```{r}
+# kind of like a switch/case statement in other langauges
 gapminder %>% 
   filter(year == 1997) %>% 
   mutate(life_level = case_when(lifeExp < 23 ~ "very low",
@@ -70,7 +72,9 @@ gapminder %>%
   ggplot() + geom_boxplot(aes(x = life_level, y = gdpPercap)) +
   labs(y = "GDP per capita, $", x= "Life expectancy level, years") +
   scale_x_discrete(drop = FALSE) +
-  theme_bw() 
+  theme_bw()
+
+# can use ylab and xlab instead of labs as well
 ```
 
 ## Inspecting factors (activity 2)
@@ -93,7 +97,7 @@ str(gapminder$continent)
 
 # first few continents are Asia-- that's why str() yields 3,3,3
 # because Asia is 3rd in levels()
-gapminder
+datatable(gapminder)
 ```
 
 ### Exploring `gapminder$country` (activity 2.2)
@@ -107,6 +111,8 @@ Answer the following questions:
 
 ```{r}
 nlevels(gapminder$country)
+
+# use %in% for 'membership checks', like "in" in python
 
 countries <- c("Canada", "United States", "Mexico", "China", "Japan")
 gap <- gapminder %>%
@@ -130,6 +136,8 @@ h_gap_dropped <- gap %>%
   droplevels()
 
 nlevels(h_gap_dropped$country)
+
+# these functions must have 'factors' as input, NOT a tibble
 ```
 
 ## Changing the order of levels
@@ -154,7 +162,11 @@ gapminder %>%
   geom_bar(aes(continent)) +
   coord_flip() +
   theme_bw() +
-  ylab("Number of entries") + xlab("Continent")
+  ylab("Number of entries") + 
+  xlab("Continent")
+
+# ylab is actually the x-axis after the coord_flip()
+# xlab is actually the y-axis after the coord_flip()
 ```
 
 Think about how levels are normally ordered. 
@@ -174,7 +186,8 @@ gapminder %>%
   geom_bar(aes(fct_rev(fct_infreq(continent)))) +
   coord_flip()+
   theme_bw() +
-  ylab("Number of entries") + xlab("Continent")
+  ylab("Number of entries") + 
+  xlab("Continent")
 ```
 
 Section 9.6 of Jenny Bryan's [notes](https://stat545.com/factors-boss.html#reorder-factors) has some helpful examples.
@@ -184,21 +197,23 @@ Section 9.6 of Jenny Bryan's [notes](https://stat545.com/factors-boss.html#reord
   - For example, if we wanted to bring back our example of ordering `gapminder` countries by life expectancy, we can visualize the results using `fct_reorder()`. 
 
 ```{r}
-##  default summarizing function is median()
+##  default summarizing function is median() NOT mean()
 gapminder %>%
   ggplot() +
   geom_bar(aes(fct_reorder(continent, lifeExp, max))) +
   coord_flip()+
   theme_bw() +
-  xlab("Continent") + ylab("Number of entries") 
+  xlab("Continent") + 
+  ylab("Number of entries") 
 ```
 
 Use `fct_reorder2()` when you have a line chart of a quantitative x against another quantitative y and your factor provides the color. 
 
+_Ran out of time:_
 ```{r}
 ## order by life expectancy 
 ggplot(h_gap, aes(x = year, y = lifeExp,
-                  color = FILL_IN_THIS)) +
+                  color = FILL_THIS_IN)) +
   geom_line() +
   labs(color = "country")
 ```
@@ -213,7 +228,7 @@ gapminder %>%
   geom_bar(aes(fct_relevel(continent,"Oceania", after = 2))) +
   coord_flip()+
   theme_bw() +
-  xlab("Continent") + ylab("Number of entries") 
+  xlab("Continent") + ylab("Number of entries")
 ```
 More details on reordering factor levels by hand can be found [here] https://forcats.tidyverse.org/reference/fct_relevel.html
 
