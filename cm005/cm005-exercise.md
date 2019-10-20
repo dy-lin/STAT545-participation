@@ -169,15 +169,8 @@ So you're a ggplot2 pro? Then, let's see this plot adapted to polar coordinates.
 - radius is CO$_2$ concentration
 
 The plot should look like a spiral, or concentric circles. 
+_Did not get to this in class:_
 
-
-```r
-FILL_THIS_IN
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'FILL_THIS_IN' not found
-```
 
 
 ## Exercise 3: Fix the plots (Together)
