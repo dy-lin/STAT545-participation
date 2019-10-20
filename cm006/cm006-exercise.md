@@ -360,61 +360,70 @@ gapminder %>%
 ```r
 # <- shortcut: ALT + - (alt + dash)
 gapminder %>%
-    filter(pop > 10**9) %>%
+    filter(pop > 10**8) %>%
     filter(continent == "Asia")
 ```
 
 ```
-## # A tibble: 8 x 6
-##   country continent  year lifeExp        pop gdpPercap
-##   <fct>   <fct>     <int>   <dbl>      <int>     <dbl>
-## 1 China   Asia       1982    65.5 1000281000      962.
-## 2 China   Asia       1987    67.3 1084035000     1379.
-## 3 China   Asia       1992    68.7 1164970000     1656.
-## 4 China   Asia       1997    70.4 1230075000     2289.
-## 5 China   Asia       2002    72.0 1280400000     3119.
-## 6 China   Asia       2007    73.0 1318683096     4959.
-## 7 India   Asia       2002    62.9 1034172547     1747.
-## 8 India   Asia       2007    64.7 1110396331     2452.
+## # A tibble: 52 x 6
+##    country    continent  year lifeExp       pop gdpPercap
+##    <fct>      <fct>     <int>   <dbl>     <int>     <dbl>
+##  1 Bangladesh Asia       1987    52.8 103764241      752.
+##  2 Bangladesh Asia       1992    56.0 113704579      838.
+##  3 Bangladesh Asia       1997    59.4 123315288      973.
+##  4 Bangladesh Asia       2002    62.0 135656790     1136.
+##  5 Bangladesh Asia       2007    64.1 150448339     1391.
+##  6 China      Asia       1952    44   556263527      400.
+##  7 China      Asia       1957    50.5 637408000      576.
+##  8 China      Asia       1962    44.5 665770000      488.
+##  9 China      Asia       1967    58.4 754550000      613.
+## 10 China      Asia       1972    63.1 862030000      677.
+## # … with 42 more rows
 ```
 
 ```r
 gapminder %>%
-  filter(pop > 10**9 & continent == "Asia")
+  filter(pop > 10**8 & continent == "Asia")
 ```
 
 ```
-## # A tibble: 8 x 6
-##   country continent  year lifeExp        pop gdpPercap
-##   <fct>   <fct>     <int>   <dbl>      <int>     <dbl>
-## 1 China   Asia       1982    65.5 1000281000      962.
-## 2 China   Asia       1987    67.3 1084035000     1379.
-## 3 China   Asia       1992    68.7 1164970000     1656.
-## 4 China   Asia       1997    70.4 1230075000     2289.
-## 5 China   Asia       2002    72.0 1280400000     3119.
-## 6 China   Asia       2007    73.0 1318683096     4959.
-## 7 India   Asia       2002    62.9 1034172547     1747.
-## 8 India   Asia       2007    64.7 1110396331     2452.
+## # A tibble: 52 x 6
+##    country    continent  year lifeExp       pop gdpPercap
+##    <fct>      <fct>     <int>   <dbl>     <int>     <dbl>
+##  1 Bangladesh Asia       1987    52.8 103764241      752.
+##  2 Bangladesh Asia       1992    56.0 113704579      838.
+##  3 Bangladesh Asia       1997    59.4 123315288      973.
+##  4 Bangladesh Asia       2002    62.0 135656790     1136.
+##  5 Bangladesh Asia       2007    64.1 150448339     1391.
+##  6 China      Asia       1952    44   556263527      400.
+##  7 China      Asia       1957    50.5 637408000      576.
+##  8 China      Asia       1962    44.5 665770000      488.
+##  9 China      Asia       1967    58.4 754550000      613.
+## 10 China      Asia       1972    63.1 862030000      677.
+## # … with 42 more rows
 ```
 
 ```r
 gapminder %>%
-    filter(pop > 10**9, 
+    filter(pop > 10**8, 
            continent == "Asia")
 ```
 
 ```
-## # A tibble: 8 x 6
-##   country continent  year lifeExp        pop gdpPercap
-##   <fct>   <fct>     <int>   <dbl>      <int>     <dbl>
-## 1 China   Asia       1982    65.5 1000281000      962.
-## 2 China   Asia       1987    67.3 1084035000     1379.
-## 3 China   Asia       1992    68.7 1164970000     1656.
-## 4 China   Asia       1997    70.4 1230075000     2289.
-## 5 China   Asia       2002    72.0 1280400000     3119.
-## 6 China   Asia       2007    73.0 1318683096     4959.
-## 7 India   Asia       2002    62.9 1034172547     1747.
-## 8 India   Asia       2007    64.7 1110396331     2452.
+## # A tibble: 52 x 6
+##    country    continent  year lifeExp       pop gdpPercap
+##    <fct>      <fct>     <int>   <dbl>     <int>     <dbl>
+##  1 Bangladesh Asia       1987    52.8 103764241      752.
+##  2 Bangladesh Asia       1992    56.0 113704579      838.
+##  3 Bangladesh Asia       1997    59.4 123315288      973.
+##  4 Bangladesh Asia       2002    62.0 135656790     1136.
+##  5 Bangladesh Asia       2007    64.1 150448339     1391.
+##  6 China      Asia       1952    44   556263527      400.
+##  7 China      Asia       1957    50.5 637408000      576.
+##  8 China      Asia       1962    44.5 665770000      488.
+##  9 China      Asia       1967    58.4 754550000      613.
+## 10 China      Asia       1972    63.1 862030000      677.
+## # … with 42 more rows
 ```
 
 3. Take data from countries Brazil, and China. 
@@ -452,45 +461,45 @@ Let's get:
 
 ```r
 gapminder %>%
-  mutate(gdbBill = round(gdpPercap*pop/(10**9),2))
+  mutate(gdbBill = round(gdpPercap*pop/(10**8),2))
 ```
 
 ```
 ## # A tibble: 1,704 x 7
 ##    country     continent  year lifeExp      pop gdpPercap gdbBill
 ##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl>   <dbl>
-##  1 Afghanistan Asia       1952    28.8  8425333      779.    6.57
-##  2 Afghanistan Asia       1957    30.3  9240934      821.    7.59
-##  3 Afghanistan Asia       1962    32.0 10267083      853.    8.76
-##  4 Afghanistan Asia       1967    34.0 11537966      836.    9.65
-##  5 Afghanistan Asia       1972    36.1 13079460      740.    9.68
-##  6 Afghanistan Asia       1977    38.4 14880372      786.   11.7 
-##  7 Afghanistan Asia       1982    39.9 12881816      978.   12.6 
-##  8 Afghanistan Asia       1987    40.8 13867957      852.   11.8 
-##  9 Afghanistan Asia       1992    41.7 16317921      649.   10.6 
-## 10 Afghanistan Asia       1997    41.8 22227415      635.   14.1 
+##  1 Afghanistan Asia       1952    28.8  8425333      779.    65.7
+##  2 Afghanistan Asia       1957    30.3  9240934      821.    75.8
+##  3 Afghanistan Asia       1962    32.0 10267083      853.    87.6
+##  4 Afghanistan Asia       1967    34.0 11537966      836.    96.5
+##  5 Afghanistan Asia       1972    36.1 13079460      740.    96.8
+##  6 Afghanistan Asia       1977    38.4 14880372      786.   117. 
+##  7 Afghanistan Asia       1982    39.9 12881816      978.   126. 
+##  8 Afghanistan Asia       1987    40.8 13867957      852.   118. 
+##  9 Afghanistan Asia       1992    41.7 16317921      649.   106. 
+## 10 Afghanistan Asia       1997    41.8 22227415      635.   141. 
 ## # … with 1,694 more rows
 ```
 
 ```r
 gapminder %>%
-    mutate(gdpBill = (gdpPercap*pop/(10**9)) %>% round(2))
+    mutate(gdpBill = (gdpPercap*pop/(10**8)) %>% round(2))
 ```
 
 ```
 ## # A tibble: 1,704 x 7
 ##    country     continent  year lifeExp      pop gdpPercap gdpBill
 ##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl>   <dbl>
-##  1 Afghanistan Asia       1952    28.8  8425333      779.    6.57
-##  2 Afghanistan Asia       1957    30.3  9240934      821.    7.59
-##  3 Afghanistan Asia       1962    32.0 10267083      853.    8.76
-##  4 Afghanistan Asia       1967    34.0 11537966      836.    9.65
-##  5 Afghanistan Asia       1972    36.1 13079460      740.    9.68
-##  6 Afghanistan Asia       1977    38.4 14880372      786.   11.7 
-##  7 Afghanistan Asia       1982    39.9 12881816      978.   12.6 
-##  8 Afghanistan Asia       1987    40.8 13867957      852.   11.8 
-##  9 Afghanistan Asia       1992    41.7 16317921      649.   10.6 
-## 10 Afghanistan Asia       1997    41.8 22227415      635.   14.1 
+##  1 Afghanistan Asia       1952    28.8  8425333      779.    65.7
+##  2 Afghanistan Asia       1957    30.3  9240934      821.    75.8
+##  3 Afghanistan Asia       1962    32.0 10267083      853.    87.6
+##  4 Afghanistan Asia       1967    34.0 11537966      836.    96.5
+##  5 Afghanistan Asia       1972    36.1 13079460      740.    96.8
+##  6 Afghanistan Asia       1977    38.4 14880372      786.   117. 
+##  7 Afghanistan Asia       1982    39.9 12881816      978.   126. 
+##  8 Afghanistan Asia       1987    40.8 13867957      852.   118. 
+##  9 Afghanistan Asia       1992    41.7 16317921      649.   106. 
+## 10 Afghanistan Asia       1997    41.8 22227415      635.   141. 
 ## # … with 1,694 more rows
 ```
 
@@ -501,23 +510,23 @@ Try the same thing, but with `transmute` (drops all other variables).
 
 ```r
 gapminder %>%
-  transmute(country,gdbBill = round(gdpPercap*pop/(10**9),2))
+  transmute(country,gdbBill = round(gdpPercap*pop/(10**8),2))
 ```
 
 ```
 ## # A tibble: 1,704 x 2
 ##    country     gdbBill
 ##    <fct>         <dbl>
-##  1 Afghanistan    6.57
-##  2 Afghanistan    7.59
-##  3 Afghanistan    8.76
-##  4 Afghanistan    9.65
-##  5 Afghanistan    9.68
-##  6 Afghanistan   11.7 
-##  7 Afghanistan   12.6 
-##  8 Afghanistan   11.8 
-##  9 Afghanistan   10.6 
-## 10 Afghanistan   14.1 
+##  1 Afghanistan    65.7
+##  2 Afghanistan    75.8
+##  3 Afghanistan    87.6
+##  4 Afghanistan    96.5
+##  5 Afghanistan    96.8
+##  6 Afghanistan   117. 
+##  7 Afghanistan   126. 
+##  8 Afghanistan   118. 
+##  9 Afghanistan   106. 
+## 10 Afghanistan   141. 
 ## # … with 1,694 more rows
 ```
 
@@ -596,6 +605,8 @@ Knit, commit, push!
 # Bonus Exercises
 
 If there's time remaining, we'll practice with these three exercises. I'll give you 1 minute for each, then we'll go over the answer.
+
+_Did not get to this part:_
 
 1. Take all countries in Europe that have a GDP per capita greater than 10000, and select all variables except `gdpPercap`. (Hint: use `-`).
 

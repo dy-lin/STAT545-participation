@@ -138,14 +138,14 @@ gapminder %>%
 ```{r}
 # <- shortcut: ALT + - (alt + dash)
 gapminder %>%
-    filter(pop > 10**9) %>%
+    filter(pop > 10**8) %>%
     filter(continent == "Asia")
 
 gapminder %>%
-  filter(pop > 10**9 & continent == "Asia")
+  filter(pop > 10**8 & continent == "Asia")
 
 gapminder %>%
-    filter(pop > 10**9, 
+    filter(pop > 10**8, 
            continent == "Asia")
 ```
 
@@ -165,10 +165,10 @@ Let's get:
 
 ```{r}
 gapminder %>%
-  mutate(gdbBill = round(gdpPercap*pop/(10**9),2))
+  mutate(gdbBill = round(gdpPercap*pop/(10**8),2))
 
 gapminder %>%
-    mutate(gdpBill = (gdpPercap*pop/(10**9)) %>% round(2))
+    mutate(gdpBill = (gdpPercap*pop/(10**8)) %>% round(2))
 ```
 
 Notice the backwards compatibility! No need for loops!
@@ -177,7 +177,7 @@ Try the same thing, but with `transmute` (drops all other variables).
 
 ```{r}
 gapminder %>%
-  transmute(country,gdbBill = round(gdpPercap*pop/(10**9),2))
+  transmute(country,gdbBill = round(gdpPercap*pop/(10**8),2))
 ```
 
 The `if_else` function is useful for changing certain elements in a data frame.
@@ -210,6 +210,8 @@ Knit, commit, push!
 # Bonus Exercises
 
 If there's time remaining, we'll practice with these three exercises. I'll give you 1 minute for each, then we'll go over the answer.
+
+_Did not get to this part:_
 
 1. Take all countries in Europe that have a GDP per capita greater than 10000, and select all variables except `gdpPercap`. (Hint: use `-`).
 
