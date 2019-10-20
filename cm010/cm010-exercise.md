@@ -405,6 +405,7 @@ bind_rows(
 
 
 ```r
+# both ways work!
 setdiff(y,z)
 ```
 

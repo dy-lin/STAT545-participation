@@ -147,6 +147,7 @@ bind_rows(
 3. The rows contained in `z` are bad! Remove those rows from `y`.
 
 ```{r}
+# both ways work!
 setdiff(y,z)
 anti_join(y,z)
 ```
