@@ -87,7 +87,7 @@ Exercise:
 1. Fit a linear regression model to life expectancy ("Y") from year ("X") by filling in the formula. Notice what appears as the output.
 2. On a new line, use the `unclass` function to uncover the object's true nature: a list. Note: it might be easier to use the `names` function to see what components are included in the list. 
 
-First, create a subset of the `gapminder` dataset containing only the country of `France
+First, create a subset of the `gapminder` dataset containing only the country of `France`
 ```{r}
 library(gapminder)
 (gapminder_France <- gapminder %>%
@@ -157,6 +157,8 @@ ggplot(gapminder_Zimbabwe, aes(year, lifeExp)) +
   geom_point()+
   geom_smooth(method = "lm", formula = y ~ poly(I(x - 1952), degree = 2))
 
+# second degree polynomial, using degree = 2, after formula
+
 ```
 
 ```{r}
@@ -175,6 +177,7 @@ anova(lm_linear,lm_poly)
 ```
 How did R know that continent was a categorical variable?
 ```{r}
+# factors are "categories"
 class(gapminder$continent)
 levels(gapminder$continent)
 contrasts(gapminder$continent)
@@ -206,6 +209,8 @@ Exercise: apply all three functions to our fitted model, `my_lm`. What do you se
 ```{r}
 library(broom)
 (lm_resid <- augment(my_lm))
+(lm_resid <- glance(my_lm))
+(lm_resid <- tidy(my_lm))
 
 ggplot(lm_resid, aes(.resid)) +
   geom_freqpoly(binwidth = 0.5)
