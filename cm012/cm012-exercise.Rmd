@@ -10,7 +10,7 @@ output:
 knitr::opts_chunk$set(error = TRUE)
 ```
 
-```{r load, echo = FALSE}
+```{r load, echo = FALSE, message = FALSE, warning = FALSE}
 library(gapminder)
 library(tidyverse)
 library(dplyr)
@@ -215,7 +215,7 @@ _Ran out of time:_
 ```{r}
 ## order by life expectancy 
 ggplot(h_gap, aes(x = year, y = lifeExp,
-                  color = FILL_THIS_IN)) +
+                  color = fct_reorder2(country,year,lifeExp))) +
   geom_line() +
   labs(color = "country")
 ```
@@ -250,7 +250,7 @@ gapminder %>%
   theme_bw() +
   xlab("Continent") + ylab("Number of entries") 
 ```
-
+<!--
 ## Grow a factor (OPTIONAL)
 
 Let’s create two data frames,`df1` and `df2` each with data from two countries, dropping unused factor levels.
@@ -274,3 +274,4 @@ Explore how different forms of row binding work behave here, in terms of the cou
 ```{r}
 
 ```
+-->

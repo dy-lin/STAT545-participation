@@ -6,6 +6,10 @@ output:
     theme: paper
 ---
 
+```{r allow errors, echo = FALSE}
+knitr::opts_chunk$set(error = TRUE, message = FALSE, warning = FALSE)
+```
+
 # Effective Visualizations
 
 Now that you know how to create graphics and visualizations in R, you are armed with powerful tools for scientific computing and analysis. With this power also comes great responsibility. Effective visualizations is an incredibly important aspect of scientific research and communication. There have been several books (see references) written about these principles. In class today we will be going through several case-studies trying to develop some expertise into making effective visualizations. 
@@ -116,21 +120,26 @@ Great resource for selecting the right plot: https://www.data-to-viz.com/ ; enco
 
 ### Case Study 3: Case for pie charts
 
-_Rushed through this case study, no figure shown:_
-
 * Do not make pie charts (universally hated)
 
 ## Part 3: Principles of effective visualizations [20 mins]
 
 We will be filling these principles in together as a class
 
-_Ran out of time for this section:_
-
-1. 
-1. 
-1. 
-1. 
-1. 
+1. Apply [Principle of proportional ink](https://callingbullshit.org/tools/tools_proportional_ink.html)
+    * Definition: “The amount of ink used to indicate a value should be proportional to the value itself.”
+    * Example: Truncating the y-axis on a bar chart to exaggerate the difference between bars violates the principle of proportional ink
+1. Maintain a high data-to-ink ratio: [less is more](https://speakerdeck.com/cherdarchuk/remove-to-improve-the-data-ink-ratio)
+    * Definition: remove distracting visual elements to focus attention on the data
+    * Examples: Lighten line weights, remove backgrounds, never use 3D or special effects, remove unnecessary/redundant labels, etc…
+1. Always update axes labels and titles on your plots
+    * In STAT545/547 we take principles of effective visualizations very seriously and you will lose marks if this isn’t followed
+1. Choose your scale-type carefully
+    * Whether you choose a linear, logarithm, sqrt scale depends on your data, context, and purpose
+1. Choose your graph-type carefully
+    * Examples: [here](https://serialmentor.com/dataviz/directory-of-visualizations.html) is a great directory of plots
+1. Choose colours with accessibility and readability in mind
+    * Examples: [here](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette) is a great set of colour schemes that are colour-blind friendly and perceptually uniform
 
 ### Make a great plot worse
 
@@ -138,7 +147,65 @@ _Ran out of time for this section:_
 
 Instructions: Here is a code chunk that shows an effective visualization. First, copy this code chunk into a new cell. Then, modify it to purposely make this chart "bad" by breaking the principles of effective visualization above. Your final chart still needs to run/compile and it should still produce a plot. 
 
+Effective Visualization:
+```{r}
+library("plotly")
+library("tidyverse")
+ggplot(airquality, aes(`Month`, `Temp`, group = `Month`)) +
+    geom_boxplot(outlier.shape = NA) +
+    geom_jitter(alpha = 0.3) +
+    labs(x = "",
+         y = "",
+         title="Maximum temperature by month")+
+    theme_bw() + 
+    scale_x_continuous(breaks=c(5,6,7,8,9),labels=c("May","June","July","August","September")) +
+    annotate("text", x = 4.08, y = 95,label="°F",size=8) +
+    coord_cartesian(xlim = c(4.5, 9.5),
+                      clip = 'off')+
+    theme(panel.grid.minor = element_blank(),
+          panel.background = element_blank(), 
+          axis.line = element_line(colour = "gray"),
+          panel.border = element_blank(),
+          text = element_text(size=18)
+          )
+```
+
+Ineffective Visualization:
+```{r}
+library("plotly")
+library("tidyverse")
+ggplot(airquality, aes(`Month`, `Temp`, group = `Month`)) +
+    geom_line(colour = "yellow") +
+    geom_point(colour = "white",fill = "white", alpha = "0.1") + 
+    labs(x = "",
+         y = "",
+         title="") +
+    scale_y_log10() +
+    ylim(70,200)
+```
+
 How many of the principles did you manage to break?
+
+* Principal of Proportional Ink
+  * Chnaged y-axis minimum to 70 and maximum to 200
+  * Changed `fill` and `colour` into white
+  * Changed `alpha` to 0.1
+* Always update axes labels and titles on your plots
+  * Removed x-axis title and all specified labels
+  * Removed y-axis title
+  * Removed main title
+* Maintain a high data-to-ink ratio
+  * Added back grey background and grid back
+* Choose your scale-type carefully
+  * Changed y-axis scale to `log10`
+* Choose your graph-type carefully
+  * Changed `geom_boxplot()` to `geom_line()`
+* Choose colours with accessibility and readability in mind
+  * Removed `geom_jitter()`
+  * Changed `fill` and `colour` into white for `geom_point()`
+  * Changed `colour` to yellow for `geom_line()`
+  * Changed `alpha` to 0.1 for both `geom_point()` and `geom_line()`
+
 
 ## Plotly demo [10 mins]
 

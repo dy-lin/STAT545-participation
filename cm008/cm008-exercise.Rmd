@@ -123,7 +123,7 @@ ggplot(gapminder) +
   geom_point(aes(gdpPercap, lifeExp), size = 0.1) +
   scale_x_log10(labels = scales::dollar_format())
 ```
-
+<!--
 _END OF CLASS_
 
 ## Exercise 4: Walking caribou
@@ -238,3 +238,4 @@ __Exercise 4__: Make a plot of `year` (x) vs `lifeExp` (y), facetted by continen
 __Exercise 5__: Plot the population over time (year) using lines, so that each country has its own line. Colour by `gdpPercap`. Add alpha transparency to your liking. 
 
 __Exercise 6__: Add points to the plot in Exercise 5.
+-->
