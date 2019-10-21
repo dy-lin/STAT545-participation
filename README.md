@@ -1,4 +1,4 @@
-# STAT545A Participation
+# STAT545 Participation
 This is the participation repository for STAT 545. This repository will hold all the exercises done during the live-coding session in class.
 
 ## Files
