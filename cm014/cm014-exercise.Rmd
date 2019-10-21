@@ -33,6 +33,8 @@ library(tidyverse)
 ggplot(mtcars, aes(wt, mpg)) +
   geom_point() +
   labs(x = "Weight (1000's of lbs)")
+
+# models can fit many data points (using an 'averaged' data line is not always helpful)
 ```
 
 Example: What can we say about rear axle ratio if we know something about quarter mile time?
@@ -101,6 +103,8 @@ Now, using the `lm()` function we will create the linear model
 Does that mean that the life expectency at "year 0" was equal to -397.7646?!
 We are interested in the modeling results around the modeling period which starts at year 1952. To get a meaniningful "interpretable" intercept we can use the `I()` function.
 ```{r}
+# use I() to make intercept so "beginning" of our dataset is 1952 corresponding to '0' of the model
+# this makes it so all the years are relative to our first year of 1952
 (my_lm <- lm(lifeExp ~ I(year-1952), gapminder_France))
 ```
 
@@ -118,12 +122,15 @@ summary(my_lm)
 We can use the `predict()` function to make predictions from the model (default is to use fitting/training data). Here are the predictions:
 
 ```{r}
+# use predict() to predict for years that are within our year range but do not have explicit data points
 (gapminder_France2 <- data.frame(year = seq(2000, 2005)))
 predict(my_lm, newdata = gapminder_France2) %>% 
   head()
 ```
 Or we can predict on a new dataset:
 ```{r}
+# or use predict() to predict for years that are beyond the range of our dataset
+# that is, extrapolate data using the model
 years1 = data.frame(year = c(3000, 3005))
 predict(my_lm,years1)
 
@@ -145,11 +152,18 @@ Lets consider another country "Zimbabwe", which has a unique behavior in the `li
 ```{r}
 gapminder_Zimbabwe <- gapminder %>%
   filter(country == "Zimbabwe")
-gapminder_Zimbabwe %>% ggplot(aes(year, lifeExp)) + geom_point()
+
+gapminder_Zimbabwe %>% 
+  ggplot(aes(year, lifeExp)) +
+  geom_point()
 ```
 Let's try fitting a linear model to this relationship
 ```{r}
-ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) + geom_point()+geom_smooth(method = "lm", se = F)
+ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) + 
+  geom_point() +
+  geom_smooth(method = "lm", se = F)
+
+# se means show confidence interval, since false, will not show
 ```
 Now we will try to fit a second degree polynomial and see what would that look like.
 ```{r}
@@ -165,6 +179,7 @@ ggplot(gapminder_Zimbabwe, aes(year, lifeExp)) +
 lm_linear <- lm(data = gapminder,formula = lifeExp ~ I(year-1952))
 lm_poly <- lm(data = gapminder,formula = lifeExp ~ poly(I(year-1952)))
 ```
+
 `anova` lets you compare between different models.
 ```{r}
 anova(lm_linear,lm_poly)
@@ -181,10 +196,15 @@ How did R know that continent was a categorical variable?
 class(gapminder$continent)
 levels(gapminder$continent)
 contrasts(gapminder$continent)
+# view contrasts between the factors
+# Africa has zero since it is the reference level
 ```
 How can we change the reference level?
 ```{r}
 gapminder$continent <- relevel(gapminder$continent, ref = "Oceania")
+contrasts(gapminder$continent)
+
+# Now Oceania is zero since it is the reference level
 ```
 Let's build a new model
 ```{r}
@@ -209,9 +229,10 @@ Exercise: apply all three functions to our fitted model, `my_lm`. What do you se
 ```{r}
 library(broom)
 (lm_resid <- augment(my_lm))
-(lm_resid <- glance(my_lm))
-(lm_resid <- tidy(my_lm))
 
 ggplot(lm_resid, aes(.resid)) +
   geom_freqpoly(binwidth = 0.5)
+
+(lm_resid <- glance(my_lm))
+(lm_resid <- tidy(my_lm))
 ```
