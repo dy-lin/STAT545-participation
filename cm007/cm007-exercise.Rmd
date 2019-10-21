@@ -4,7 +4,7 @@ output:
   html_document:
     keep_md: true
     theme: paper
-    self_contained: true
+    self_contained: false
 ---
 
 <!---The following chunk allows errors when knitting--->
