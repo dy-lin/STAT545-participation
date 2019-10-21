@@ -2,6 +2,8 @@
 
 ## Files
 * [`cm012-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm012/cm012-exercise.html)
+  * [`cm012-exercise.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm012/cm012-exercise.md) 
+  * [`cm012-exercise.Rmd`](https://github.com/dy-lin/STAT545-participation/blob/master/cm012/cm012-exercise.Rmd)
 
 ## Checklist
 - [x] Complete `cm012-exercise.Rmd` worksheet
