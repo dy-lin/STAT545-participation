@@ -205,6 +205,8 @@ gapminder %>%
   theme_bw() +
   xlab("Continent") + 
   ylab("Number of entries") 
+
+# ordered by life Expectancy, but is not evident as the bars are measuring number of entries 
 ```
 
 Use `fct_reorder2()` when you have a line chart of a quantitative x against another quantitative y and your factor provides the color. 
@@ -229,6 +231,7 @@ gapminder %>%
   coord_flip()+
   theme_bw() +
   xlab("Continent") + ylab("Number of entries")
+# can also specify levels directly, using levels = c() in fct_releve()
 ```
 More details on reordering factor levels by hand can be found [here] https://forcats.tidyverse.org/reference/fct_relevel.html
 
@@ -239,6 +242,7 @@ For instance, if you had levels called "blk" and "brwn", you would rather they b
 Lets recode `Oceania` and the `Americas` in the graph above as abbreviations `OCN` and `AME` respectively using the function `fct_recode()`.
 
 ```{r}
+# similar to rename()
 gapminder %>%
   ggplot() +
   geom_bar(aes(fct_recode(continent,"OCN"="Oceania", "AME" = "Americas"))) +
