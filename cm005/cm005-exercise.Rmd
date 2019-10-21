@@ -2,7 +2,7 @@
 title: "cm005 Worksheet: Exploring Geometric Objects"
 output: 
   html_document:
-    keep_md: true
+#    keep_md: true
     theme: paper
 ---
 
