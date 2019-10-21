@@ -3,7 +3,9 @@
 ## Files
 * [`navigating_github.html`](https://dy-lin.github.io/STAT545-participation/cm003/navigating_github.html)
   * [`navigating_github.pdf`](https://dy-lin.github.io/STAT545-participation/cm003/navigating_github.pdf)
+  * [`navigating_github.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm003/navigating_github.md)
 * [`rmd_exploration.html`](https://dy-lin.github.io/STAT545-participation/cm003/rmd_exploration.html)
+  * [`rmd_exploration.Rmd`](https://dy-lin.github.io/STAT545-participation/cm003/rmd_exploration.pdf)
   * [`rmd_exploration.Rmd`](https://github.com/dy-lin/STAT545-participation/blob/master/cm003/rmd_exploration.Rmd)
 * [`rmd_exploration-slides.html`](https://dy-lin.github.io/STAT545-participation/cm003/rmd_exploration-slides.html)
   * [`rmd_exploration-slides.Rmd`](https://github.com/dy-lin/STAT545-participation/blob/master/cm003/rmd_exploration-slides.Rmd)
