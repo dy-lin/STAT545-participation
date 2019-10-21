@@ -2,9 +2,8 @@
 title: "cm007 Exercises: Practice with `dplyr`"
 output: 
   html_document:
-    keep_md: true
+#    keep_md: true
     theme: paper
-    self_contained: false
 ---
 
 <!---The following chunk allows errors when knitting--->
