@@ -37,6 +37,7 @@ library(tidyverse)
 
 
 ```r
+# select = choose columns
 select(gapminder, year, lifeExp, country)
 ```
 
@@ -85,6 +86,7 @@ select(gapminder, country, continent, year, lifeExp)
 
 ```r
 # Better way:
+# use colon-- start:end column names
 select(gapminder, country:lifeExp)
 ```
 
@@ -110,6 +112,9 @@ select(gapminder, country:lifeExp)
 
 
 ```r
+# use - to denote exclusion
+# select() takes column names directly
+# do not need to put them in a vector
 select(gapminder, -lifeExp)
 ```
 
@@ -134,6 +139,8 @@ select(gapminder, -lifeExp)
 
 
 ```r
+# everything() knows not to include 'continent' since it was already listed
+# can think of everything() as everything ELSE
 select(gapminder, continent, everything())
 ```
 
@@ -160,6 +167,8 @@ select(gapminder, continent, everything())
 
 ```r
 # compare
+
+# select has reordered continent to the front AND renamed
 select(gapminder, cont = continent, everything())
 ```
 
@@ -181,6 +190,7 @@ select(gapminder, cont = continent, everything())
 ```
 
 ```r
+# rename has only changed the name, kept the same column positioning
 rename(gapminder, cont = continent)
 ```
 
@@ -208,6 +218,7 @@ rename(gapminder, cont = continent)
 
 
 ```r
+# arrange by year (increasing)
 arrange(gapminder, year)
 ```
 
@@ -232,6 +243,7 @@ arrange(gapminder, year)
 
 
 ```r
+# use desc to use descending order
 arrange(gapminder, desc(year))
 ```
 
@@ -256,6 +268,7 @@ arrange(gapminder, desc(year))
 
 
 ```r
+# arrange by year then life expectancy (input order translates into arrange order)
 arrange(gapminder, year, lifeExp)
 ```
 
@@ -321,6 +334,9 @@ gapminder %>%
 
 ```r
 # shortcut for pipe: CMD + SHIFT + M
+
+# %>% takes the output of the previous function as the FIRST argument of the next function
+# think of the %>% as the | in bash
 ```
 
 # Resume lecture 
@@ -333,6 +349,7 @@ Return to guide at section 6.7.
 
 
 ```r
+# filter = choose rows that match a certain criteria
 gapminder %>%
   filter(pop > 100000000)
 ```
@@ -426,6 +443,10 @@ gapminder %>%
 ## # … with 42 more rows
 ```
 
+```r
+# learn the difference between using & (and) and | (or)
+```
+
 3. Take data from countries Brazil, and China. 
 
 
@@ -451,6 +472,10 @@ gapminder %>%
 ## # … with 14 more rows
 ```
 
+```r
+# use OR in this case since each row can only have one value for country
+```
+
 ## `mutate()` (10 min)
 
 Let's get: 
@@ -460,6 +485,8 @@ Let's get:
 
 
 ```r
+# round(number, num_decimal_places)
+# mutate to make a new column with calculated values
 gapminder %>%
   mutate(gdbBill = round(gdpPercap*pop/(10**8),2))
 ```
@@ -509,6 +536,8 @@ Try the same thing, but with `transmute` (drops all other variables).
 
 
 ```r
+# transmute drops all other columns except new one, unless one is specified
+# transmute(# columns to keep (optional), new_calculated_column)
 gapminder %>%
   transmute(country,gdbBill = round(gdpPercap*pop/(10**8),2))
 ```
@@ -536,6 +565,7 @@ Example: Suppose Canada's 1952 life expectancy was mistakenly entered as 68.8 in
 
 
 ```r
+# if the country is equal to Canada and the year is 1952, life Expectancy is equal to 70, otherwise, keep lifeExpectancy as is
 gapminder %>%
   mutate(lifeExp = if_else(country == "Canada" & year == 1952, 70, lifeExp))
 ```
@@ -575,6 +605,7 @@ Your turn: Make a new column called `cc` that pastes the country name followed b
 
 
 ```r
+# paste( words to be pasted together separated by comma, sep = delimiter)
 gapminder %>%
     mutate(cc = paste(country,continent, sep=", "))
 ```

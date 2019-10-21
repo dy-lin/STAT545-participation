@@ -384,7 +384,8 @@ library(tidyverse)</code></pre>
 <ol style="list-style-type: decimal">
 <li>Make a data frame containing the columns <code>year</code>, <code>lifeExp</code>, <code>country</code> from the gapminder data, in that order.</li>
 </ol>
-<pre class="r"><code>select(gapminder, year, lifeExp, country)</code></pre>
+<pre class="r"><code># select = choose columns
+select(gapminder, year, lifeExp, country)</code></pre>
 <pre><code>## # A tibble: 1,704 x 3
 ##     year lifeExp country    
 ##    &lt;int&gt;   &lt;dbl&gt; &lt;fct&gt;      
@@ -419,6 +420,7 @@ select(gapminder, country, continent, year, lifeExp)</code></pre>
 ## 10 Afghanistan Asia       1997    41.8
 ## # … with 1,694 more rows</code></pre>
 <pre class="r"><code># Better way:
+# use colon-- start:end column names
 select(gapminder, country:lifeExp)</code></pre>
 <pre><code>## # A tibble: 1,704 x 4
 ##    country     continent  year lifeExp
@@ -437,7 +439,10 @@ select(gapminder, country:lifeExp)</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Select all variables, except <code>lifeExp</code>.</li>
 </ol>
-<pre class="r"><code>select(gapminder, -lifeExp)</code></pre>
+<pre class="r"><code># use - to denote exclusion
+# select() takes column names directly
+# do not need to put them in a vector
+select(gapminder, -lifeExp)</code></pre>
 <pre><code>## # A tibble: 1,704 x 5
 ##    country     continent  year      pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -455,7 +460,9 @@ select(gapminder, country:lifeExp)</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Put <code>continent</code> first. Hint: use the <code>everything()</code> function.</li>
 </ol>
-<pre class="r"><code>select(gapminder, continent, everything())</code></pre>
+<pre class="r"><code># everything() knows not to include 'continent' since it was already listed
+# can think of everything() as everything ELSE
+select(gapminder, continent, everything())</code></pre>
 <pre><code>## # A tibble: 1,704 x 6
 ##    continent country      year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;     &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -474,6 +481,8 @@ select(gapminder, country:lifeExp)</code></pre>
 <li>Rename <code>continent</code> to <code>cont</code>.</li>
 </ol>
 <pre class="r"><code># compare
+
+# select has reordered continent to the front AND renamed
 select(gapminder, cont = continent, everything())</code></pre>
 <pre><code>## # A tibble: 1,704 x 6
 ##    cont  country      year lifeExp      pop gdpPercap
@@ -489,7 +498,8 @@ select(gapminder, cont = continent, everything())</code></pre>
 ##  9 Asia  Afghanistan  1992    41.7 16317921      649.
 ## 10 Asia  Afghanistan  1997    41.8 22227415      635.
 ## # … with 1,694 more rows</code></pre>
-<pre class="r"><code>rename(gapminder, cont = continent)</code></pre>
+<pre class="r"><code># rename has only changed the name, kept the same column positioning
+rename(gapminder, cont = continent)</code></pre>
 <pre><code>## # A tibble: 1,704 x 6
 ##    country     cont   year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -510,7 +520,8 @@ select(gapminder, cont = continent, everything())</code></pre>
 <ol style="list-style-type: decimal">
 <li>Order by year.</li>
 </ol>
-<pre class="r"><code>arrange(gapminder, year)</code></pre>
+<pre class="r"><code># arrange by year (increasing)
+arrange(gapminder, year)</code></pre>
 <pre><code>## # A tibble: 1,704 x 6
 ##    country     continent  year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -528,7 +539,8 @@ select(gapminder, cont = continent, everything())</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Order by year, in descending order.</li>
 </ol>
-<pre class="r"><code>arrange(gapminder, desc(year))</code></pre>
+<pre class="r"><code># use desc to use descending order
+arrange(gapminder, desc(year))</code></pre>
 <pre><code>## # A tibble: 1,704 x 6
 ##    country     continent  year lifeExp       pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
@@ -546,7 +558,8 @@ select(gapminder, cont = continent, everything())</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Order by year, then by life expectancy.</li>
 </ol>
-<pre class="r"><code>arrange(gapminder, year, lifeExp)</code></pre>
+<pre class="r"><code># arrange by year then life expectancy (input order translates into arrange order)
+arrange(gapminder, year, lifeExp)</code></pre>
 <pre><code>## # A tibble: 1,704 x 6
 ##    country       continent  year lifeExp     pop gdpPercap
 ##    &lt;fct&gt;         &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;
@@ -589,7 +602,10 @@ gapminder %&gt;%
 ##  9  1952    33.0 Somalia      
 ## 10  1952    33.6 Guinea       
 ## # … with 1,694 more rows</code></pre>
-<pre class="r"><code># shortcut for pipe: CMD + SHIFT + M</code></pre>
+<pre class="r"><code># shortcut for pipe: CMD + SHIFT + M
+
+# %&gt;% takes the output of the previous function as the FIRST argument of the next function
+# think of the %&gt;% as the | in bash</code></pre>
 </div>
 </div>
 <div id="resume-lecture" class="section level1">
@@ -600,7 +616,8 @@ gapminder %&gt;%
 <ol style="list-style-type: decimal">
 <li>Only take data with population greater than 100 million.</li>
 </ol>
-<pre class="r"><code>gapminder %&gt;%
+<pre class="r"><code># filter = choose rows that match a certain criteria
+gapminder %&gt;%
   filter(pop &gt; 100000000)</code></pre>
 <pre><code>## # A tibble: 77 x 6
 ##    country    continent  year lifeExp       pop gdpPercap
@@ -670,6 +687,7 @@ gapminder %&gt;%
 ##  9 China      Asia       1967    58.4 754550000      613.
 ## 10 China      Asia       1972    63.1 862030000      677.
 ## # … with 42 more rows</code></pre>
+<pre class="r"><code># learn the difference between using &amp; (and) and | (or)</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Take data from countries Brazil, and China.</li>
 </ol>
@@ -689,6 +707,7 @@ gapminder %&gt;%
 ##  9 Brazil  Americas   1992    67.1 155975974     6950.
 ## 10 Brazil  Americas   1997    69.4 168546719     7958.
 ## # … with 14 more rows</code></pre>
+<pre class="r"><code># use OR in this case since each row can only have one value for country</code></pre>
 </div>
 <div id="mutate-10-min" class="section level2">
 <h2><code>mutate()</code> (10 min)</h2>
@@ -697,7 +716,9 @@ gapminder %&gt;%
 <li>GDP by multiplying GPD per capita with population, and</li>
 <li>GDP in billions, named (<code>gdpBill</code>), rounded to two decimals.</li>
 </ul>
-<pre class="r"><code>gapminder %&gt;%
+<pre class="r"><code># round(number, num_decimal_places)
+# mutate to make a new column with calculated values
+gapminder %&gt;%
   mutate(gdbBill = round(gdpPercap*pop/(10**8),2))</code></pre>
 <pre><code>## # A tibble: 1,704 x 7
 ##    country     continent  year lifeExp      pop gdpPercap gdbBill
@@ -731,7 +752,9 @@ gapminder %&gt;%
 ## # … with 1,694 more rows</code></pre>
 <p>Notice the backwards compatibility! No need for loops!</p>
 <p>Try the same thing, but with <code>transmute</code> (drops all other variables).</p>
-<pre class="r"><code>gapminder %&gt;%
+<pre class="r"><code># transmute drops all other columns except new one, unless one is specified
+# transmute(# columns to keep (optional), new_calculated_column)
+gapminder %&gt;%
   transmute(country,gdbBill = round(gdpPercap*pop/(10**8),2))</code></pre>
 <pre><code>## # A tibble: 1,704 x 2
 ##    country     gdbBill
@@ -749,7 +772,8 @@ gapminder %&gt;%
 ## # … with 1,694 more rows</code></pre>
 <p>The <code>if_else</code> function is useful for changing certain elements in a data frame.</p>
 <p>Example: Suppose Canada’s 1952 life expectancy was mistakenly entered as 68.8 in the data frame, but is actually 70. Fix it using <code>if_else</code> and <code>mutate</code>.</p>
-<pre class="r"><code>gapminder %&gt;%
+<pre class="r"><code># if the country is equal to Canada and the year is 1952, life Expectancy is equal to 70, otherwise, keep lifeExpectancy as is
+gapminder %&gt;%
   mutate(lifeExp = if_else(country == &quot;Canada&quot; &amp; year == 1952, 70, lifeExp))</code></pre>
 <pre><code>## # A tibble: 1,704 x 6
 ##    country     continent  year lifeExp      pop gdpPercap
@@ -774,7 +798,8 @@ gapminder %&gt;%
 ##   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
 ## 1 Canada  Americas   1952      70 14785584    11367.</code></pre>
 <p>Your turn: Make a new column called <code>cc</code> that pastes the country name followed by the continent, separated by a comma. (Hint: use the <code>paste</code> function with the <code>sep=&quot;, &quot;</code> argument).</p>
-<pre class="r"><code>gapminder %&gt;%
+<pre class="r"><code># paste( words to be pasted together separated by comma, sep = delimiter)
+gapminder %&gt;%
     mutate(cc = paste(country,continent, sep=&quot;, &quot;))</code></pre>
 <pre><code>## # A tibble: 1,704 x 7
 ##    country     continent  year lifeExp      pop gdpPercap cc               
