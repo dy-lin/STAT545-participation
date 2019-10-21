@@ -2,7 +2,6 @@
 
 ## Files
 * [`cm008-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm008/cm008-exercise.html)
-  * [`cm008-exercise.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm008/cm008-exercise.md)
   * [`cm008-exercise.Rmd`](https://github.com/dy-lin/STAT545-participation/blob/master/cm008/cm008-exercise.Rmd)
 
 ## Checklist
