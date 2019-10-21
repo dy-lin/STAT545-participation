@@ -34,11 +34,21 @@ After fixing the error, fix the overlapping problem in the following plot (attri
 
 
 ```r
+# BEFORE
+ggplot(mpg, aes(cty, hwy)) +
+  geom_point()
+```
+
+![](cm008-exercise_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+
+```r
+# AFTER
+# Use geom_jitter to spread the points out
 ggplot(mpg, aes(cty, hwy)) +
   geom_jitter()
 ```
 
-![](cm008-exercise_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![](cm008-exercise_files/figure-html/unnamed-chunk-2-2.png)<!-- -->
 
 ```r
 ggplot(mpg,aes(cty,hwy)) +
@@ -47,7 +57,11 @@ ggplot(mpg,aes(cty,hwy)) +
     theme_bw()
 ```
 
-![](cm008-exercise_files/figure-html/unnamed-chunk-2-2.png)<!-- -->
+![](cm008-exercise_files/figure-html/unnamed-chunk-2-3.png)<!-- -->
+
+```r
+# use geom_smooth, method = "lm" means linear regression model
+```
 
 
 
@@ -58,13 +72,28 @@ Fix this plot so that it shows life expectancy over time _for each country_. Not
 
 ```r
 gapminder %>% 
-#  group_by(country) %>% 
+  group_by(country) %>% 
   ggplot(aes(year, lifeExp, group = country, colour = country == "Canada")) +
   geom_line(alpha = 0.2) +
   scale_colour_discrete("", labels = c("Other", "Canada"))
 ```
 
 ![](cm008-exercise_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+
+```r
+gapminder %>% 
+#  group_by(country) %>% 
+  ggplot(aes(year, lifeExp, group = country, colour = country == "Canada")) +
+  geom_line(alpha = 0.2) +
+  scale_colour_discrete("", labels = c("Other", "Canada"))
+```
+
+![](cm008-exercise_files/figure-html/unnamed-chunk-3-2.png)<!-- -->
+
+```r
+# plots look the same besides group_by
+# group_by mostly used for summarise
+```
 
 
 ## Exercise 3: More gdpPercap vs lifeExp
@@ -86,6 +115,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp)) +
 
 ```r
 #  facet_wrap(~ continent, scales="free")
+# can use scales = "free_y" etc
 ```
 
 ### 3(b) Bubble Plot
