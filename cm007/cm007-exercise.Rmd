@@ -13,6 +13,7 @@ knitr::opts_chunk$set(error = TRUE, warning = FALSE)
 ```
 
 ```{r}
+# use suppressPackageStartupMessages() to clean up output when loading packages
 suppressPackageStartupMessages(library(tidyverse))
 suppressPackageStartupMessages(library(gapminder))
 suppressPackageStartupMessages(library(tsibble))
@@ -26,11 +27,14 @@ This worksheet contains exercises aimed for practice with `dplyr`.
 1. (a) What's the minimum life expectancy for each continent and each year? (b) Add the corresponding country to the tibble, too. (c) Arrange by min life expectancy.
 
 ```{r}
+# whatever you group by in group_by, is what summarise will summarise.
 gapminder %>% 
   group_by(continent, year) %>% 
   summarize(min_life = min(lifeExp),
             country = country[lifeExp == min_life]) %>%
     arrange(min_life)
+
+# when you make columns with summarize, they can be immediately used in the same summarise function
 ```
 
 2. Calculate the growth in population since the first year on record _for each country_ by rearranging the following lines, and filling in the `FILL_THIS_IN`. Here's another convenience function for you: `dplyr::first()`. 
@@ -44,6 +48,7 @@ group_by(country) %>%
 ```
 
 ```{r}
+# use first to get the population for the first year on record (current order, can use order_by to specify a different order than the current one)
 gapminder %>%
     group_by(country) %>%
     arrange(year) %>%
