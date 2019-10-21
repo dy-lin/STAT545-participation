@@ -67,6 +67,7 @@ Execute this code to store the data in `mauna`:
 
 
 ```r
+# enclose in () to assign to variable AND print to console
 (mauna <- tsibble::as_tsibble(co2) %>% 
    rename(month = index, conc = value))
 ```
@@ -106,6 +107,7 @@ Fill in the blanks to obtain the plot:
 
 
 ```r
+# use fig.width and fig.height to configure plot size
 ggplot(mauna, aes(month, conc)) +
   geom_line()
 ```
@@ -123,6 +125,7 @@ The following code mistakenly puts the month variable on the y-axis. Fill in the
 
 
 ```r
+# overwrite the value of y in geom_line
 ggplot(mauna, aes(y = month)) +
   geom_line(aes(month,conc)) + ylab("conc") 
 ```
@@ -169,6 +172,7 @@ So you're a ggplot2 pro? Then, let's see this plot adapted to polar coordinates.
 - radius is CO$_2$ concentration
 
 The plot should look like a spiral, or concentric circles. 
+
 _Did not get to this in class:_
 
 

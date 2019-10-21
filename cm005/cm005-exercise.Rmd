@@ -64,6 +64,7 @@ The following is a tsibble (a special type of tibble containing time series data
 Execute this code to store the data in `mauna`:
 
 ```{r}
+# enclose in () to assign to variable AND print to console
 (mauna <- tsibble::as_tsibble(co2) %>% 
    rename(month = index, conc = value))
 ```
@@ -85,6 +86,7 @@ Produce a line chart showing the concentration over time. Specifically, the plot
 Fill in the blanks to obtain the plot:
 
 ```{r, fig.width = 5, fig.height = 2}
+# use fig.width and fig.height to configure plot size
 ggplot(mauna, aes(month, conc)) +
   geom_line()
 ```
@@ -99,6 +101,7 @@ It turns out that you're allowed to specify the aesthetic mappings in a `geom` l
 The following code mistakenly puts the month variable on the y-axis. Fill in the `FILL_THIS_IN` so that you still obtain the same result as above.
 
 ```{r, fig.width = 5, fig.height = 2}
+# overwrite the value of y in geom_line
 ggplot(mauna, aes(y = month)) +
   geom_line(aes(month,conc)) + ylab("conc") 
 ```
@@ -133,6 +136,7 @@ So you're a ggplot2 pro? Then, let's see this plot adapted to polar coordinates.
 - radius is CO$_2$ concentration
 
 The plot should look like a spiral, or concentric circles. 
+
 _Did not get to this in class:_
 ```{r, fig.width = 5, fig.height = 2}
 
