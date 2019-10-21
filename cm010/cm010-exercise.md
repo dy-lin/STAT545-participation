@@ -83,6 +83,7 @@ The package `singer` comes with two smallish data frames about songs. Let's take
 
 
 ```r
+# semi_join filters time tibble to include only those that have a song and artist name in album
 time %>% 
   semi_join(album, by = c("song", "artist_name"))
 ```
@@ -107,6 +108,7 @@ time %>%
 ```
 
 ```r
+# inner_join combines the two tibbles, only keeping those present in both (drop all outliers in either tibble) but retains columns of both tibbles
 time %>%
     inner_join(album, by = c("song", "artist_name"))
 ```
@@ -134,6 +136,7 @@ time %>%
 
 
 ```r
+# left_join joins tibble time with album, adding album tibble columns to time, using NA if information is not available.
 time %>% 
   left_join(album, by = c("song", "artist_name"))
 ```
@@ -186,6 +189,7 @@ time %>%
 
 
 ```r
+# anti_join filters time and drops all time rows that are in album
 time %>% 
   anti_join(album, by = "artist_name")
 ```
@@ -206,6 +210,7 @@ time %>%
 
 
 ```r
+# joins both tibbles and adds NA wherever needed
 time %>% 
   full_join(album, by = c("song", "artist_name"))
 ```
@@ -349,6 +354,7 @@ Let's use three set functions: `intersect`, `union` and `setdiff`. We'll work wi
 
 
 ```r
+# intersect gets rows that occur (identically) in both tibbles
 intersect(y, z)
 ```
 
@@ -364,6 +370,8 @@ intersect(y, z)
 
 
 ```r
+# union returns unique observations in both tibbles
+# since all are unique, all are retained
 union(
   mutate(y, day = "Day 1"),
   mutate(z, day = "Day 2")
@@ -383,6 +391,7 @@ union(
 ```
 
 ```r
+# bind_rows binds rows together (stacks tibbles on top of each other)
 bind_rows(
   mutate(y, day = "Day 1"),
   mutate(z, day = "Day 2")
@@ -406,6 +415,8 @@ bind_rows(
 
 ```r
 # both ways work!
+
+# setdiff returns observations found in y that are not in z
 setdiff(y,z)
 ```
 
@@ -417,6 +428,7 @@ setdiff(y,z)
 ```
 
 ```r
+# anti_join filters y by excluding y values that are in tibble z
 anti_join(y,z)
 ```
 
