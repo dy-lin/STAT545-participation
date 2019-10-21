@@ -1,7 +1,6 @@
 # Class Meeting 006
 ## Files
 * [`cm006-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm006/cm006-exercise.html)
-  * [`cm006-exercise.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm006/cm006-exercise.md) 
   * [`cm006-exercise.Rmd`](https://github.com/dy-lin/STAT545-participation/blob/master/cm006/cm006-exercise.Rmd)
 
 
