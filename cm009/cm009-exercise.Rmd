@@ -50,6 +50,13 @@ lotr_wide %>%
   pivot_longer(cols = c(-Film, -Gender), 
                names_to  = "Race", 
                values_to = "Words")
+
+lotr_wide %>%
+  pivot_longer(cols = -c(Film, Gender),
+               names_to = "Race",
+               values_to = "Words")
+
+# negative sign can go outside or inside of the vector
 ```
 
 ## Exercise 2: Multivariate Pivoting
@@ -74,6 +81,9 @@ guest %>%
 
 ```{r}
 guest_long %>% 
+  separate(name, into = c("first_name", "last_name"), sep=" ")
+
+guest_long %>% 
   separate(name, into = c("first_name", "last_name"), sep=" ") %>%
   unite(col = "name", c("first_name", "last_name"), sep = " ")
 ```
@@ -84,6 +94,9 @@ guest_long %>%
 guest_long %>% 
   group_by(party) %>% 
   summarize(all_pending = all(attendance == "PENDING"))
+
+# all returns true for that party if attendance == "PENDING" for each party member
+# all returns false for that party if attendance != "PEnDING" for one member of a party 
 ```
 
 4. Which parties still have a "PENDING" status for all members for the wedding?
@@ -112,7 +125,8 @@ email %>%
   separate_rows(guest, sep = ", ")
 ```
 
-<!-- FINISHED HERE -->
+_END OF CLASS_
+
 ## Exercise 3: Making tibbles
 
 1. Create a tibble that has the following columns:
@@ -131,7 +145,6 @@ tibble(label = "Sample A",
 
 2. Generate a Gaussian sample of size 100 for each combination of the following means (`mu`) and standard deviations (`sd`).
 
-_Ran out of time:_
 ```{r}
 n <- 100
 mu <- c(-5, 0, 5)
@@ -145,15 +158,20 @@ FILL_THIS_IN(mu = mu, sd = sd) %>%
 3. Fix the `experiment` tibble below (originally defined in the documentation of the `tidyr::expand()` function) so that all three repeats are displayed for each person, and the measurements are kept. The code is given, but needs one adjustment. What is it?
 
 ```{r}
-experiment <- tibble(
+(experiment <- tibble(
   name = rep(c("Alex", "Robert", "Sam"), c(3, 2, 1)),
   trt  = rep(c("a", "b", "a"), c(3, 2, 1)),
   rep = c(1, 2, 3, 1, 2, 1),
   measurement_1 = runif(6),
   measurement_2 = runif(6)
-)
+))
+experiment %>% complete(name,trt,rep)
 experiment %>% complete(nesting(name, trt), rep)
 experiment %>% expand(name, trt, rep)
+# expand gives all possible combinations of inputs, even if not present in the dataset, and only includes the columns given, with no NAs
+# complete (without nesting) gives all possible combos with NAs
+# complete (with nesting), completes the reps based on the existing name, trt combo
+
 ```
 
 
