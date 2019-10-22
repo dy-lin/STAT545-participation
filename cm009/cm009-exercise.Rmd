@@ -127,8 +127,6 @@ email %>%
   separate_rows(guest, sep = ", ")
 ```
 
-_END OF CLASS_
-
 ## Exercise 3: Making tibbles
 
 1. Create a tibble that has the following columns:
@@ -155,6 +153,10 @@ tibble(mu = mu, sd = sd) %>%
   group_by_all() %>% 
   mutate(z = list(rnorm(n, mu, sd))) %>% 
   unnest()
+
+# group_by_all: group by every variable
+# rnorm: normal distribution
+# unnest: unravel the 'list'
 ```
 
 3. Fix the `experiment` tibble below (originally defined in the documentation of the `tidyr::expand()` function) so that all three repeats are displayed for each person, and the measurements are kept. The code is given, but needs one adjustment. What is it?

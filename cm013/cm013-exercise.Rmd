@@ -143,8 +143,6 @@ We will be filling these principles in together as a class
 
 ### Make a great plot worse
 
-_Ran out of time for this section:_
-
 Instructions: Here is a code chunk that shows an effective visualization. First, copy this code chunk into a new cell. Then, modify it to purposely make this chart "bad" by breaking the principles of effective visualization above. Your final chart still needs to run/compile and it should still produce a plot. 
 
 Effective Visualization:

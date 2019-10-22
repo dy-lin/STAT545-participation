@@ -211,7 +211,6 @@ gapminder %>%
 
 Use `fct_reorder2()` when you have a line chart of a quantitative x against another quantitative y and your factor provides the color. 
 
-_Ran out of time:_
 ```{r}
 ## order by life expectancy 
 ggplot(h_gap, aes(x = year, y = lifeExp,
