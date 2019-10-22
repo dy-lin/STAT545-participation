@@ -2,7 +2,7 @@
 title: "Tibble Exploration"
 output:
   html_document:
-    number_sections: yes
+#    number_sections: yes
     theme: paper
 #    toc: yes
 ---
