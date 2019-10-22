@@ -4,7 +4,7 @@ output:
   html_document:
     number_sections: yes
     theme: paper
-    toc: yes
+#    toc: yes
 ---
 
 <!-- echo = FALSE hides the actual code -->
