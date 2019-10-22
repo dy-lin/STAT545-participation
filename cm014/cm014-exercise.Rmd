@@ -1,6 +1,8 @@
 ---
 title: 'cm014 Worksheet: The Model-Fitting Paradigm in R'
-output: html_notebook
+output:
+  html_notebook:
+    theme: paper
 editor_options:
   chunk_output_type: inline
 ---
