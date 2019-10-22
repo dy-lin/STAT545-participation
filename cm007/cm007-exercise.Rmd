@@ -12,7 +12,7 @@ output:
 knitr::opts_chunk$set(error = TRUE, warning = FALSE)
 ```
 
-```{r}
+```{r, message = FALSE, warning = FALSE}
 # use suppressPackageStartupMessages() to clean up output when loading packages
 suppressPackageStartupMessages(library(tidyverse))
 suppressPackageStartupMessages(library(gapminder))
@@ -28,13 +28,12 @@ This worksheet contains exercises aimed for practice with `dplyr`.
 
 ```{r}
 # whatever you group by in group_by, is what summarise will summarise.
+# when you make columns with summarize, they can be immediately used in the same summarise function
 gapminder %>% 
   group_by(continent, year) %>% 
   summarize(min_life = min(lifeExp),
             country = country[lifeExp == min_life]) %>%
     arrange(min_life)
-
-# when you make columns with summarize, they can be immediately used in the same summarise function
 ```
 
 2. Calculate the growth in population since the first year on record _for each country_ by rearranging the following lines, and filling in the `FILL_THIS_IN`. Here's another convenience function for you: `dplyr::first()`. 
@@ -73,16 +72,18 @@ knitr::kable()
 ```
 
 ```{r}
+# difference() takes vector minus its lag, equivalent to lifeExp - lag(lifeExp)
+# arrange works INDEPENDENTLY OF GROUPS
+# have to use .group_by = TRUE to take group into account
 gapminder %>%
     group_by(country) %>% 
     arrange(year) %>%
-    mutate(inc_life_exp = difference(lifeExp)) %>% # difference() takes vector minus its lag, equivalent to lifeExp - lag(lifeExp)
+    mutate(inc_life_exp = difference(lifeExp)) %>%
     drop_na() %>% 
     ungroup() %>% 
     group_by(continent) %>% 
     filter(inc_life_exp == min(inc_life_exp)) %>% 
-    arrange(inc_life_exp) %>% # arrange works INDEPENDENTLY OF GROUPS
-  # have to use .group_by = TRUE to take group into account
+    arrange(inc_life_exp) %>%
     knitr::kable()
 ```
 

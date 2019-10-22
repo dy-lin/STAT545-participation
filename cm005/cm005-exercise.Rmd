@@ -16,14 +16,17 @@ install.packages("scales")
 install.packages("tsibble")
 ```
 
+```{r, echo = FALSE, warning=FALSE, message = FALSE}
+knitr::opts_chunk$set(fig.align = "center")
+```
+
 Now run this code chunk to load the packages:
 
-```{r load packages, warning = FALSE}
+```{r load packages, warning = FALSE, message = FALSE}
 suppressPackageStartupMessages(library(tidyverse))
 suppressPackageStartupMessages(library(gapminder))
 suppressPackageStartupMessages(library(scales))
 suppressPackageStartupMessages(library(tsibble))
-knitr::opts_chunk$set(fig.align = "center")
 ```
 
 <!---The following chunk allows errors when knitting--->
@@ -127,7 +130,7 @@ ggplot(gapminder) +
   geom_point(aes(x = gdpPercap, y = lifeExp), alpha = 0.1)
 ```
 
-
+<!--
 ### 2(e) BONUS
 
 So you're a ggplot2 pro? Then, let's see this plot adapted to polar coordinates. Specifically:
@@ -201,4 +204,4 @@ Change the following plot so that it shows _proportion_ on the y-axis, not count
 ggplot(mtcars, aes(cyl)) +
   geom_bar()
 ```
-
+-->

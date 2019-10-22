@@ -80,6 +80,7 @@ select(gapminder, continent, everything())
 
 # select has reordered continent to the front AND renamed
 select(gapminder, cont = continent, everything())
+
 # rename has only changed the name, kept the same column positioning
 rename(gapminder, cont = continent)
 ```
@@ -127,13 +128,13 @@ Now using with pipes:
 
 ```{r}
 # alter the below to include 2 "pipes"
+# shortcut for pipe: CMD + SHIFT + M
+# %>% takes the output of the previous function as the FIRST argument of the next function
+# think of the %>% as the | in bash
 gapminder %>%
     select(year, lifeExp, country) %>%
     arrange(year,lifeExp)
-# shortcut for pipe: CMD + SHIFT + M
 
-# %>% takes the output of the previous function as the FIRST argument of the next function
-# think of the %>% as the | in bash
 ```
 
 # Resume lecture 
@@ -154,6 +155,7 @@ gapminder %>%
 
 ```{r}
 # <- shortcut: ALT + - (alt + dash)
+# learn the difference between using & (and) and | (or)
 gapminder %>%
     filter(pop > 10**8) %>%
     filter(continent == "Asia")
@@ -164,17 +166,14 @@ gapminder %>%
 gapminder %>%
     filter(pop > 10**8, 
            continent == "Asia")
-
-# learn the difference between using & (and) and | (or)
 ```
 
 3. Take data from countries Brazil, and China. 
 
 ```{r}
+# use OR in this case since each row can only have one value for country
 gapminder %>%
     filter (country == "Brazil" | country == "China")
-
-# use OR in this case since each row can only have one value for country
 ```
 
 ## `mutate()` (10 min)
@@ -230,6 +229,7 @@ gapminder %>%
 
 These functions we've seen are called __vectorized functions__.
 
+<!--
 ## git stuff (Optional)
 
 Knit, commit, push!
@@ -238,7 +238,6 @@ Knit, commit, push!
 
 If there's time remaining, we'll practice with these three exercises. I'll give you 1 minute for each, then we'll go over the answer.
 
-_Did not get to this part:_
 
 1. Take all countries in Europe that have a GDP per capita greater than 10000, and select all variables except `gdpPercap`. (Hint: use `-`).
 
@@ -252,3 +251,4 @@ _Did not get to this part:_
 5. Filter the rows of the iris dataset for Sepal.Length >= 4.6 and Petal.Width >= 0.5.
 
 Exercises 3. and 5. are from [r-exercises](https://www.r-exercises.com/2017/10/19/dplyr-basic-functions-exercises/).
+-->

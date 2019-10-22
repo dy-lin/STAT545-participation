@@ -9,10 +9,10 @@ editor_options:
 
 ```{r, warning = FALSE, message = FALSE}
 library(tidyverse)
+library(DT)
 lotr  <- read_csv("https://raw.githubusercontent.com/jennybc/lotr-tidy/master/data/lotr_tidy.csv")
 guest <- read_csv("https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/data/wedding/attend.csv")
 email <- read_csv("https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/data/wedding/emails.csv")
-library(DT)
 ```
 
 <!---The following chunk allows errors when knitting--->
@@ -36,9 +36,7 @@ datatable(lotr)
 2. Widen the data so that we see the words spoken by each race, by putting race as its own column.
 
 ```{r}
-
 # pivot_wider/pivot_longer equivalent gather/spread
-
 (lotr_wide <- lotr %>% 
   pivot_wider(id_cols = c(-Race, -Words), 
               names_from = Race, 
@@ -48,6 +46,7 @@ datatable(lotr)
 3. Re-lengthen the wide LOTR data from Question 2 above.
 
 ```{r}
+# negative sign can go outside or inside of the vector
 lotr_wide %>% 
   pivot_longer(cols = c(-Film, -Gender), 
                names_to  = "Race", 
@@ -57,8 +56,6 @@ lotr_wide %>%
   pivot_longer(cols = -c(Film, Gender),
                names_to = "Race",
                values_to = "Words")
-
-# negative sign can go outside or inside of the vector
 ```
 
 ## Exercise 2: Multivariate Pivoting
@@ -93,12 +90,11 @@ guest_long %>%
 3. Which parties still have a "PENDING" status for all members and all events?
 
 ```{r}
+# all returns true for that party if attendance == "PENDING" for each party member
+# all returns false for that party if attendance != "PENDING" for one member of a party 
 guest_long %>% 
   group_by(party) %>% 
   summarize(all_pending = all(attendance == "PENDING"))
-
-# all returns true for that party if attendance == "PENDING" for each party member
-# all returns false for that party if attendance != "PEnDING" for one member of a party 
 ```
 
 4. Which parties still have a "PENDING" status for all members for the wedding?
@@ -146,6 +142,9 @@ tibble(label = "Sample A",
 2. Generate a Gaussian sample of size 100 for each combination of the following means (`mu`) and standard deviations (`sd`).
 
 ```{r}
+# group_by_all: group by every variable
+# rnorm: normal distribution
+# unnest: unravel the 'list'
 n <- 100
 mu <- c(-5, 0, 5)
 sd <- c(1, 3, 10)
@@ -153,15 +152,14 @@ tibble(mu = mu, sd = sd) %>%
   group_by_all() %>% 
   mutate(z = list(rnorm(n, mu, sd))) %>% 
   unnest()
-
-# group_by_all: group by every variable
-# rnorm: normal distribution
-# unnest: unravel the 'list'
 ```
 
 3. Fix the `experiment` tibble below (originally defined in the documentation of the `tidyr::expand()` function) so that all three repeats are displayed for each person, and the measurements are kept. The code is given, but needs one adjustment. What is it?
 
 ```{r}
+# expand gives all possible combinations of inputs, even if not present in the dataset, and only includes the columns given, with no NAs
+# complete (without nesting) gives all possible combos with NAs
+# complete (with nesting), completes the reps based on the existing name, trt combo
 (experiment <- tibble(
   name = rep(c("Alex", "Robert", "Sam"), c(3, 2, 1)),
   trt  = rep(c("a", "b", "a"), c(3, 2, 1)),
@@ -172,10 +170,4 @@ tibble(mu = mu, sd = sd) %>%
 experiment %>% complete(name,trt,rep)
 experiment %>% complete(nesting(name, trt), rep)
 experiment %>% expand(name, trt, rep)
-# expand gives all possible combinations of inputs, even if not present in the dataset, and only includes the columns given, with no NAs
-# complete (without nesting) gives all possible combos with NAs
-# complete (with nesting), completes the reps based on the existing name, trt combo
-
 ```
-
-

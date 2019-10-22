@@ -7,8 +7,8 @@ output:
 #    toc: true
 ---
 
-```{r}
-suppressPackageStartupMessages(library(tidyverse))
+```{r, message = FALSE, warning = FALSE}
+library(tidyverse)
 library(gapminder)
 ```
 
@@ -61,7 +61,7 @@ p_scales +
     - Change the x-axis labels to dollar format (use `scales::dollar_format()`)
     - Change the colour labels to comma format (use `scales::comma_format()`)
 
-```{r}
+```{r, message = FALSE, warning = FALSE}
 library(scales)
 p_scales +
     scale_x_log10(labels=scales::dollar_format()) +
@@ -161,7 +161,7 @@ Consider the following plot:
 
 1. Convert it to a `plotly` object by applying the `ggplotly()` function:
 
-```{r}
+```{r, warning = FALSE, message = FALSE}
 library(plotly)
 p %>%
   ggplotly()
@@ -179,11 +179,11 @@ p %>%
 
 3. Run this code to see the json format underneath:
 
-```{r}
+```{r, warning = FALSE, message = FALSE}
 library(listviewer)
 p %>% 
     ggplotly() %>% 
-    plotly_json()
+    plotly_json(jsonedit = TRUE)
 ```
 
 
@@ -211,6 +211,3 @@ plot_ly(gapminder,
         mode = "markers",
         opacity = 0.2)
 ```
-
-
-

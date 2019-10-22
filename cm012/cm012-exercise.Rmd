@@ -61,6 +61,7 @@ We can make a few observations:
 
 **1.2** You can correct these issues by explicitly setting the levels parameter in the call to `factor()`. Use, `drop = FALSE` to tell the plot not to drop unused levels 
 ```{r}
+# can use ylab and xlab instead of labs as well
 gapminder %>% 
   filter(year == 1997) %>% 
   mutate(life_level = factor(case_when(lifeExp < 23 ~ "very low",
@@ -68,13 +69,13 @@ gapminder %>%
                                 lifeExp < 59 ~ "moderate",
                                 lifeExp < 70 ~ "high",
                                 TRUE ~ "very high") ,
-                      levels = c("very low", "low", "moderate", "high", "very high"))) %>% 
+                      levels = c("very low", "low", "moderate", "high", "very high")
+                      )
+         ) %>% 
   ggplot() + geom_boxplot(aes(x = life_level, y = gdpPercap)) +
   labs(y = "GDP per capita, $", x= "Life expectancy level, years") +
   scale_x_discrete(drop = FALSE) +
   theme_bw()
-
-# can use ylab and xlab instead of labs as well
 ```
 
 ## Inspecting factors (activity 2)
@@ -113,16 +114,12 @@ Answer the following questions:
 nlevels(gapminder$country)
 
 # use %in% for 'membership checks', like "in" in python
-
 countries <- c("Canada", "United States", "Mexico", "China", "Japan")
 gap <- gapminder %>%
     filter(country %in% countries)
 
 # Factor levels preserved?
 nlevels(gap$country)
-
-
-
 ```
 
 ## Dropping unused levels
@@ -135,9 +132,8 @@ The function `droplevels()` operates on all the factors in a data frame or on a 
 h_gap_dropped <- gap %>% 
   droplevels()
 
-nlevels(h_gap_dropped$country)
-
 # these functions must have 'factors' as input, NOT a tibble
+nlevels(h_gap_dropped$country)
 ```
 
 ## Changing the order of levels
@@ -149,7 +145,6 @@ We should first produce a frequency table as a tibble using `dplyr::count()`:
 ```{r}
 gapminder %>%
     count(continent)
-
 ```
 
 The table is nice, but it would be better to visualize the data.
@@ -157,6 +152,8 @@ Factors are most useful/helpful when plotting data.
 So let's first plot this:
 
 ```{r}
+# ylab is actually the x-axis after the coord_flip()
+# xlab is actually the y-axis after the coord_flip()
 gapminder %>%
   ggplot() +
   geom_bar(aes(continent)) +
@@ -164,9 +161,6 @@ gapminder %>%
   theme_bw() +
   ylab("Number of entries") + 
   xlab("Continent")
-
-# ylab is actually the x-axis after the coord_flip()
-# xlab is actually the y-axis after the coord_flip()
 ```
 
 Think about how levels are normally ordered. 
@@ -197,7 +191,8 @@ Section 9.6 of Jenny Bryan's [notes](https://stat545.com/factors-boss.html#reord
   - For example, if we wanted to bring back our example of ordering `gapminder` countries by life expectancy, we can visualize the results using `fct_reorder()`. 
 
 ```{r}
-##  default summarizing function is median() NOT mean()
+# default summarizing function is median() NOT mean()
+# ordered by life Expectancy, but is not evident as the bars are measuring number of entries 
 gapminder %>%
   ggplot() +
   geom_bar(aes(fct_reorder(continent, lifeExp, max))) +
@@ -205,8 +200,6 @@ gapminder %>%
   theme_bw() +
   xlab("Continent") + 
   ylab("Number of entries") 
-
-# ordered by life Expectancy, but is not evident as the bars are measuring number of entries 
 ```
 
 Use `fct_reorder2()` when you have a line chart of a quantitative x against another quantitative y and your factor provides the color. 
@@ -224,13 +217,13 @@ ggplot(h_gap, aes(x = year, y = lifeExp,
 This might be useful if you are preparing a report for say, the state of affairs in Africa.
 
 ```{r}
+# can also specify levels directly, using levels = c() in fct_relevel()
 gapminder %>%
   ggplot() +
   geom_bar(aes(fct_relevel(continent,"Oceania", after = 2))) +
   coord_flip()+
   theme_bw() +
   xlab("Continent") + ylab("Number of entries")
-# can also specify levels directly, using levels = c() in fct_releve()
 ```
 More details on reordering factor levels by hand can be found [here] https://forcats.tidyverse.org/reference/fct_relevel.html
 

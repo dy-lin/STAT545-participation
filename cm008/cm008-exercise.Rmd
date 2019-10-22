@@ -43,12 +43,11 @@ ggplot(mpg, aes(cty, hwy)) +
 ggplot(mpg, aes(cty, hwy)) +
   geom_jitter()
 
+# use geom_smooth, method = "lm" means linear regression model
 ggplot(mpg,aes(cty,hwy)) +
     geom_jitter(alpha = 0.5, size =1) +
     geom_smooth(method = "lm") +
     theme_bw()
-
-# use geom_smooth, method = "lm" means linear regression model
 ```
 
 
@@ -58,6 +57,8 @@ ggplot(mpg,aes(cty,hwy)) +
 Fix this plot so that it shows life expectancy over time _for each country_. Notice that `ggplot2` ignores the grouping of a tibble!
 
 ```{r, fig.width = 5, fig.height = 2}
+# plots look the same besides group_by
+# group_by mostly used for summarise
 gapminder %>% 
   group_by(country) %>% 
   ggplot(aes(year, lifeExp, group = country, colour = country == "Canada")) +
@@ -69,9 +70,6 @@ gapminder %>%
   ggplot(aes(year, lifeExp, group = country, colour = country == "Canada")) +
   geom_line(alpha = 0.2) +
   scale_colour_discrete("", labels = c("Other", "Canada"))
-
-# plots look the same besides group_by
-# group_by mostly used for summarise
 ```
 
 
@@ -83,12 +81,12 @@ gapminder %>%
 - Separate each continent into sub-panels.
 
 ```{r, fig.width = 5, fig.height = 2}
+# facet_wrap(~ continent, scales="free")
+# can use scales = "free_y" etc
 ggplot(gapminder, aes(gdpPercap, lifeExp)) +
   geom_point(alpha = 0.2) +
   scale_x_log10(labels = comma_format()) +
   facet_wrap(~ continent)
-#  facet_wrap(~ continent, scales="free")
-# can use scales = "free_y" etc
 ```
 
 ### 3(b) Bubble Plot
@@ -99,6 +97,8 @@ ggplot(gapminder, aes(gdpPercap, lifeExp)) +
 - Use `shape=21` to distinguish between `fill` (interior) and `colour` (exterior). 
 
 ```{r, fig.width = 8, fig.height = 4}
+  # colour identifies with perimeter/outside of the object
+ # fill identifies with the fill of the shape
 gapminder %>% 
   filter(continent != "Africa") %>% 
   ggplot(aes(gdpPercap, lifeExp, size = pop, fill = continent)) +
@@ -106,9 +106,6 @@ gapminder %>%
   geom_point(alpha = 0.5, shape = 21) +
   scale_x_log10(labels = scales::comma_format())
   scale_size_area()
- 
- # colour identifies with perimeter/outside of the object
- # fill identifies with the fill of the shape
 ```
 
 A list of shapes can be found [at the bottom of the `scale_shape` documentation](https://ggplot2.tidyverse.org/reference/scale_shape.html).

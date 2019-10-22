@@ -609,6 +609,9 @@ arrange(gapminder, year, lifeExp)</code></pre>
 arrange(select(gapminder, year, lifeExp, country), year, lifeExp)</code></pre>
 <p>Now using with pipes:</p>
 <pre class="r"><code># alter the below to include 2 &quot;pipes&quot;
+# shortcut for pipe: CMD + SHIFT + M
+# %&gt;% takes the output of the previous function as the FIRST argument of the next function
+# think of the %&gt;% as the | in bash
 gapminder %&gt;%
     select(year, lifeExp, country) %&gt;%
     arrange(year,lifeExp)</code></pre>
@@ -626,10 +629,6 @@ gapminder %&gt;%
 ##  9  1952    33.0 Somalia      
 ## 10  1952    33.6 Guinea       
 ## # … with 1,694 more rows</code></pre>
-<pre class="r"><code># shortcut for pipe: CMD + SHIFT + M
-
-# %&gt;% takes the output of the previous function as the FIRST argument of the next function
-# think of the %&gt;% as the | in bash</code></pre>
 </div>
 </div>
 <div id="resume-lecture" class="section level1">
@@ -661,6 +660,7 @@ gapminder %&gt;%
 <li>Your turn: of those rows filtered from step 1., only take data from Asia.</li>
 </ol>
 <pre class="r"><code># &lt;- shortcut: ALT + - (alt + dash)
+# learn the difference between using &amp; (and) and | (or)
 gapminder %&gt;%
     filter(pop &gt; 10**8) %&gt;%
     filter(continent == &quot;Asia&quot;)</code></pre>
@@ -711,11 +711,11 @@ gapminder %&gt;%
 ##  9 China      Asia       1967    58.4 754550000      613.
 ## 10 China      Asia       1972    63.1 862030000      677.
 ## # … with 42 more rows</code></pre>
-<pre class="r"><code># learn the difference between using &amp; (and) and | (or)</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Take data from countries Brazil, and China.</li>
 </ol>
-<pre class="r"><code>gapminder %&gt;%
+<pre class="r"><code># use OR in this case since each row can only have one value for country
+gapminder %&gt;%
     filter (country == &quot;Brazil&quot; | country == &quot;China&quot;)</code></pre>
 <pre><code>## # A tibble: 24 x 6
 ##    country continent  year lifeExp       pop gdpPercap
@@ -731,7 +731,6 @@ gapminder %&gt;%
 ##  9 Brazil  Americas   1992    67.1 155975974     6950.
 ## 10 Brazil  Americas   1997    69.4 168546719     7958.
 ## # … with 14 more rows</code></pre>
-<pre class="r"><code># use OR in this case since each row can only have one value for country</code></pre>
 </div>
 <div id="mutate-10-min" class="section level2">
 <h2><code>mutate()</code> (10 min)</h2>
@@ -840,27 +839,30 @@ gapminder %&gt;%
 ## 10 Afghanistan Asia       1997    41.8 22227415      635. Afghanistan, Asia
 ## # … with 1,694 more rows</code></pre>
 <p>These functions we’ve seen are called <strong>vectorized functions</strong>.</p>
+<!--
+## git stuff (Optional)
+
+Knit, commit, push!
+
+# Bonus Exercises
+
+If there's time remaining, we'll practice with these three exercises. I'll give you 1 minute for each, then we'll go over the answer.
+
+
+1. Take all countries in Europe that have a GDP per capita greater than 10000, and select all variables except `gdpPercap`. (Hint: use `-`).
+
+2. Take the first three columns, and extract the names.
+
+3. Of the `iris` data frame, take all columns that start with the word "Petal". 
+    - Hint: take a look at the "Select helpers" documentation by running the following code: `?tidyselect::select_helpers`.
+    
+4. Convert the population to a number in billions.
+
+5. Filter the rows of the iris dataset for Sepal.Length >= 4.6 and Petal.Width >= 0.5.
+
+Exercises 3. and 5. are from [r-exercises](https://www.r-exercises.com/2017/10/19/dplyr-basic-functions-exercises/).
+-->
 </div>
-<div id="git-stuff-optional" class="section level2">
-<h2>git stuff (Optional)</h2>
-<p>Knit, commit, push!</p>
-</div>
-</div>
-<div id="bonus-exercises" class="section level1">
-<h1>Bonus Exercises</h1>
-<p>If there’s time remaining, we’ll practice with these three exercises. I’ll give you 1 minute for each, then we’ll go over the answer.</p>
-<p><em>Did not get to this part:</em></p>
-<ol style="list-style-type: decimal">
-<li><p>Take all countries in Europe that have a GDP per capita greater than 10000, and select all variables except <code>gdpPercap</code>. (Hint: use <code>-</code>).</p></li>
-<li><p>Take the first three columns, and extract the names.</p></li>
-<li>Of the <code>iris</code> data frame, take all columns that start with the word “Petal”.
-<ul>
-<li>Hint: take a look at the “Select helpers” documentation by running the following code: <code>?tidyselect::select_helpers</code>.</li>
-</ul></li>
-<li><p>Convert the population to a number in billions.</p></li>
-<li><p>Filter the rows of the iris dataset for Sepal.Length &gt;= 4.6 and Petal.Width &gt;= 0.5.</p></li>
-</ol>
-<p>Exercises 3. and 5. are from <a href="https://www.r-exercises.com/2017/10/19/dplyr-basic-functions-exercises/">r-exercises</a>.</p>
 </div>
 
 
