@@ -1,10 +1,10 @@
 # Class Meeting 013
 
 ## Files
-* [`cm013-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm013/cm013-exercise.html)
-  * [`cm013-exercise.Rmd`](https://github.com/dy-lin/STAT545-participation/blob/master/cm013/cm013-exercise.Rmd)
-* [`cm013-supplemental.html`](https://dy-lin.github.io/STAT545-participation/cm013/cm013-supplemental.html)
-  * [`cm013-supplemental.Rmd`](https://github.com/dy-lin/STAT545-participation/blob/master/cm013/cm013-supplemental.Rmd)
+* [`cm013-exercise.html`](https://dy-lin.github.io/stat545-participation/cm013/cm013-exercise.html)
+  * [`cm013-exercise.Rmd`](https://github.com/dy-lin/stat545-participation/blob/master/cm013/cm013-exercise.Rmd)
+* [`cm013-supplemental.html`](https://dy-lin.github.io/stat545-participation/cm013/cm013-supplemental.html)
+  * [`cm013-supplemental.Rmd`](https://github.com/dy-lin/stat545-participation/blob/master/cm013/cm013-supplemental.Rmd)
 
 ## Checklist
 - [x] Complete `cm013-exercise.Rmd` worksheet.

@@ -1,8 +1,8 @@
 # Class Meeting 008
 
 ## Files
-* [`cm008-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm008/cm008-exercise.html)
-  * [`cm008-exercise.Rmd`](https://github.com/dy-lin/STAT545-participation/blob/master/cm008/cm008-exercise.Rmd)
+* [`cm008-exercise.html`](https://dy-lin.github.io/stat545-participation/cm008/cm008-exercise.html)
+  * [`cm008-exercise.Rmd`](https://github.com/dy-lin/stat545-participation/blob/master/cm008/cm008-exercise.Rmd)
 
 ## Checklist
 

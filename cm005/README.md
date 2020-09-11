@@ -1,8 +1,8 @@
 # Class Meeting 005
 
 ## Files
-* [`cm005-ggplot_intro.html`](https://dy-lin.github.io/STAT545-participation/cm005/cm005-ggplot_intro.html)
-  * [`cm005-ggplot_intro.Rmd`](https://github.com/dy-lin/STAT545-participation/blob/master/cm005/cm005-ggplot_intro.Rmd)
+* [`cm005-ggplot_intro.html`](https://dy-lin.github.io/stat545-participation/cm005/cm005-ggplot_intro.html)
+  * [`cm005-ggplot_intro.Rmd`](https://github.com/dy-lin/stat545-participation/blob/master/cm005/cm005-ggplot_intro.Rmd)
 
 ## Checklist
 - [x] Complete `cm005-ggplot_intro.Rmd` worksheet.

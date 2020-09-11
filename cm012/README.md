@@ -1,8 +1,8 @@
 # Class Meeting 012
 
 ## Files
-* [`cm012-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm012/cm012-exercise.html)
-  * [`cm012-exercise.Rmd`](https://github.com/dy-lin/STAT545-participation/blob/master/cm012/cm012-exercise.Rmd)
+* [`cm012-exercise.html`](https://dy-lin.github.io/stat545-participation/cm012/cm012-exercise.html)
+  * [`cm012-exercise.Rmd`](https://github.com/dy-lin/stat545-participation/blob/master/cm012/cm012-exercise.Rmd)
 
 ## Checklist
 - [x] Complete `cm012-exercise.Rmd` worksheet

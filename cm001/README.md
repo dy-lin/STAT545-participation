@@ -2,7 +2,7 @@
 This folder does not contain a GitHub pages `HTML` link, as this lecture was about GitHub-flavoured Markdown.
 
 ## Files
-* [`navigating_github.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm001/navigating_github.md)
+* [`navigating_github.md`](https://github.com/dy-lin/stat545-participation/blob/master/cm001/navigating_github.md)
 
 ## Checklist
 - [x] Register a GitHub account

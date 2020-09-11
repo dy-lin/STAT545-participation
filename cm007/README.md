@@ -1,7 +1,7 @@
 # Class Meeting 007
 ## Files
-* [`cm007-exercise.html`](https://dy-lin.github.io/STAT545-participation/cm007/cm007-exercise.html)
-  * [`cm007-exercise.Rmd`](https://github.com/dy-lin/STAT545-participation/blob/master/cm007/cm007-exercise.Rmd)
+* [`cm007-exercise.html`](https://dy-lin.github.io/stat545-participation/cm007/cm007-exercise.html)
+  * [`cm007-exercise.Rmd`](https://github.com/dy-lin/stat545-participation/blob/master/cm007/cm007-exercise.Rmd)
 
 ## Checklist
 - [x] Complete `cm007-exercise.Rmd` worksheet

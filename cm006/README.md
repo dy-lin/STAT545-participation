@@ -1,7 +1,7 @@
 # Class Meeting 006
 ## Files
-* [`cm006-dplyr_exercise.html`](https://dy-lin.github.io/STAT545-participation/cm006/cm006-dplyr_exercise.html)
-  * [`cm006-dplyr_exercise.Rmd`](https://github.com/dy-lin/STAT545-participation/blob/master/cm006/cm006-dplyr_exercise.Rmd)
+* [`cm006-dplyr_exercise.html`](https://dy-lin.github.io/stat545-participation/cm006/cm006-dplyr_exercise.html)
+  * [`cm006-dplyr_exercise.Rmd`](https://github.com/dy-lin/stat545-participation/blob/master/cm006/cm006-dplyr_exercise.Rmd)
 
 
 ## Checklist

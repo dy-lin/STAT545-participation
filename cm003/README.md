@@ -1,14 +1,14 @@
 # Class Meeting 003
 
 ## Files
-* [`navigating_github.html`](https://dy-lin.github.io/STAT545-participation/cm003/navigating_github.html)
-  * [`navigating_github.pdf`](https://dy-lin.github.io/STAT545-participation/cm003/navigating_github.pdf)
-  * [`navigating_github.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm003/navigating_github.md)
-* [`rmd_exploration.html`](https://dy-lin.github.io/STAT545-participation/cm003/rmd_exploration.html)
-  * [`rmd_exploration.pdf`](https://dy-lin.github.io/STAT545-participation/cm003/rmd_exploration.pdf)
-  * [`rmd_exploration.Rmd`](https://github.com/dy-lin/STAT545-participation/blob/master/cm003/rmd_exploration.Rmd)
-* [`rmd_exploration-slides.html`](https://dy-lin.github.io/STAT545-participation/cm003/rmd_exploration-slides.html)
-  * [`rmd_exploration-slides.Rmd`](https://github.com/dy-lin/STAT545-participation/blob/master/cm003/rmd_exploration-slides.Rmd)
+* [`navigating_github.html`](https://dy-lin.github.io/stat545-participation/cm003/navigating_github.html)
+  * [`navigating_github.pdf`](https://dy-lin.github.io/stat545-participation/cm003/navigating_github.pdf)
+  * [`navigating_github.md`](https://github.com/dy-lin/stat545-participation/blob/master/cm003/navigating_github.md)
+* [`rmd_exploration.html`](https://dy-lin.github.io/stat545-participation/cm003/rmd_exploration.html)
+  * [`rmd_exploration.pdf`](https://dy-lin.github.io/stat545-participation/cm003/rmd_exploration.pdf)
+  * [`rmd_exploration.Rmd`](https://github.com/dy-lin/stat545-participation/blob/master/cm003/rmd_exploration.Rmd)
+* [`rmd_exploration-slides.html`](https://dy-lin.github.io/stat545-participation/cm003/rmd_exploration-slides.html)
+  * [`rmd_exploration-slides.Rmd`](https://github.com/dy-lin/stat545-participation/blob/master/cm003/rmd_exploration-slides.Rmd)
 
 ## Checklist
 - [x] Populate `navigating_github.md` document with some markdown features
@@ -19,17 +19,17 @@
 ## Instructions
 These instructions were taken from the Class Meeting 003 [section](https://stat545guidebook.netlify.com/authoring.html) of the guide.
 
-### Activty: Modfiy [`navigating_github.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm001/navigating_github.md)
+### Activty: Modfiy [`navigating_github.md`](https://github.com/dy-lin/stat545-participation/blob/master/cm001/navigating_github.md)
 Together:
 
-1. Open your [`navigating_github.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm001/navigating_github.md) file that we made in the first class.
+1. Open your [`navigating_github.md`](https://github.com/dy-lin/stat545-participation/blob/master/cm001/navigating_github.md) file that we made in the first class.
 1. Mark up the text with some markdown features.
 1. Commit your changes.
 
-### Activity: Render [`navigating_github.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm001/navigating_github.md)
+### Activity: Render [`navigating_github.md`](https://github.com/dy-lin/stat545-participation/blob/master/cm001/navigating_github.md)
 Together:
 1. Download the contents of your GitHub participation repository as a zip file.
-1. In RStudio, open the file [`navigating_github.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm001/navigating_github.md).
+1. In RStudio, open the file [`navigating_github.md`](https://github.com/dy-lin/stat545-participation/blob/master/cm001/navigating_github.md).
 1. Convert the `.md` file to both pdf and html by clicking the appropriate button under the “Preview” tab.
 1. Push the two new files to GitHub (by dragging and dropping the files onto your participation repo).
 
@@ -100,6 +100,6 @@ Together:
 ### Wrap-up
 
 Push the following files to your GitHub repo:
-1. [`navigating_github.md`](https://github.com/dy-lin/STAT545-participation/blob/master/cm001/navigating_github.md) and its output formats.
+1. [`navigating_github.md`](https://github.com/dy-lin/stat545-participation/blob/master/cm001/navigating_github.md) and its output formats.
 1. The Rmd exploration and its output formats.
 1. The Rmd presentation slides exploration and its output formats.

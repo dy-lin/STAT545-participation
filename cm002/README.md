@@ -2,7 +2,7 @@
 This folder does not have a GitHub Pages `HTML` link as this lecture was about R scripts.
 
 ## Files
-* [`cm002-r_exploration.R`](https://github.com/dy-lin/STAT545-participation/blob/master/cm002/cm002-r_exploration.R)
+* [`cm002-r_exploration.R`](https://github.com/dy-lin/stat545-participation/blob/master/cm002/cm002-r_exploration.R)
 
 ## Checklist
 - [x] Provide the R script `cm002-r_exploration.R` file.
